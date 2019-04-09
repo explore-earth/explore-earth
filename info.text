@@ -1,0 +1,30 @@
+Title: Exploration Enhancer
+
+Description: A website that discovers relevent and useful local information for countries around the world.
+
+Story: 
+    Travel Enthusiast:
+        Allie, age 25 wants to travel in the near future. She comes to our website and presented with a question, "Where in the world would you like to explore?". She enters "Rio de Janeiro, Brazil"The home page brings her to a beautiful awe inspiring photo. She's intrigued. She wants to know more. Well Allie is in luck, our site has a plethora of knowledge. She can learn more about the countries culture and religion, look up the local currency exchange, weather and map points of interest on a map. She can prepare to integrate herself into a new culture by becoming familiar with the cultural practices and traditions. She like this because when Allie travels it is important that she doesn't even unintentionally trample on the cultural norms. This always allows her to have a more authentic experience. She decides to Log In to the site and she is now able to store her favorite locations and POI for future travel.  She can also access the journel aspect of the site. Here she can store photos and her experiences as she travels. 
+
+    Business Traveler: 
+        Toby, age 43 has just been told he is being sent on a business trip to meet with potential investors in Dubai. He knows absolutely nothing about Dubai and his main concern is making sure that he and the investors can have a positive interaction together because a lot is riding on this deal.  He comes to our site and is relieved to see that everything he needs is available in one convenient and beautiful location. First thing, he dives into the culture/customs area.  He wants to be sure he is sensitive to the cultural norms as to not inadvertently offend his potiental investors. He also familiarizes himself with the local currency exchange so that when talking money with the investors he can switch between USD and the local currency.  For practical and packing purposes he keeps track of the local weather on our website. He even locates some points of interest he might like to see if he happens to find some free time. He can even Log In and use the journal app to take photos and keep notes for when he reports back to his boss.
+
+API:
+    1. Triposo- Maps and POI
+    2. Fixer.io- Currency Converter
+    3. AccueWeather
+    4. Unsplash- High Quality Images
+
+Other Tech or Resources Needed:
+    Hard coded Customs- https://www.commisceo-global.com/resources/country-guides
+
+Milestones:   
+    By Saturday April 13th:
+        - HTML and CSS done for the MVP presentation (Melissa and Anthony)
+        - Pri will learn as much as possible about Firebase Authentication to ask questions
+        - Good understand of API documentation
+        - Customs coded
+
+    By Wednesday April 17th:
+        - Project should be done, so that we can work on presentation       
+
