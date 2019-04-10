@@ -1,6 +1,11 @@
-
 html {
     scroll-behavior: smooth;
+    
+  }
+  body {
+    font-family: 'Poiret One', cursive;
+    font-size: 20px;
+   background: #01233f;
   }
 
 .title {
@@ -10,17 +15,48 @@ html {
 .test-div {
     display: block;
     float: left;
-    color: white;
+    color: #f4f4f4;
     position: absolute;
-    top: 20px;
+    top: 10px;
     left: 80px;
+    font-family: 'Poiret One', cursive;
+    font-size: 36px;
+    
 }
+
+.form-control {
+    font-size: 16px;
+}
+
+h2 {
+ font-weight: bold;
+}
+
+
 
 .pos-f-t {
     position: sticky;
     top: 0;
+    z-index: 1;
+    
+}
+#myJournal {
+    margin: 50px;
+}
+.container {
+    min-height: 550px;
+    padding-top: 20px;
+    background: #f4f4f4;
+    color: #373737;
+    margin-top: 50px;
 }
 
-.container {
-    min-height: 750px;
+#journal h2 {
+   
+    font-size: 36px;
 }
+.btn {
+   margin: 10px;
+}
+/* font-family: 'Amatic SC', cursive;
+font-family: 'Great Vibes', cursive; */
