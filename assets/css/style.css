@@ -1,6 +1,13 @@
 
 html {
     scroll-behavior: smooth;
+    
+  }
+  body {
+    font-family: 'Poiret One', cursive;
+    font-size: 20px;
+    background: #f4f4f4;
+    color: #373737;
   }
 
 .title {
@@ -10,17 +17,39 @@ html {
 .test-div {
     display: block;
     float: left;
-    color: white;
+    color: #f4f4f4;
     position: absolute;
-    top: 20px;
+    top: 10px;
     left: 80px;
+    font-family: 'Poiret One', cursive;
+    font-size: 36px;
+    
 }
+
+.form-control {
+    font-size: 16px;
+}
+
+
 
 .pos-f-t {
     position: sticky;
     top: 0;
+    z-index: 1;
+    
 }
 
 .container {
-    min-height: 750px;
+    min-height: 550px;
+    padding-top: 20px;
 }
+
+#journal h2 {
+   
+    font-size: 36px;
+}
+#currencyConverter {
+   
+}
+/* font-family: 'Amatic SC', cursive;
+font-family: 'Great Vibes', cursive; */
