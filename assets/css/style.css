@@ -1,3 +1,8 @@
+
+html {
+    scroll-behavior: smooth;
+  }
+
 .title {
     padding-left: 20px;
 }
@@ -9,4 +14,13 @@
     position: absolute;
     top: 20px;
     left: 80px;
+}
+
+.pos-f-t {
+    position: sticky;
+    top: 0;
+}
+
+.container {
+    min-height: 750px;
 }
