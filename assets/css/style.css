@@ -6,8 +6,7 @@ html {
   body {
     font-family: 'Poiret One', cursive;
     font-size: 20px;
-    background: #f4f4f4;
-    color: #373737;
+   background: #01233f;
   }
 
 .title {
@@ -30,6 +29,10 @@ html {
     font-size: 16px;
 }
 
+h2 {
+ font-weight: bold;
+}
+
 
 
 .pos-f-t {
@@ -38,18 +41,23 @@ html {
     z-index: 1;
     
 }
-
+#myJournal {
+    margin: 50px;
+}
 .container {
     min-height: 550px;
     padding-top: 20px;
+    background: #f4f4f4;
+    color: #373737;
+    margin-top: 50px;
 }
 
 #journal h2 {
    
     font-size: 36px;
 }
-#currencyConverter {
-   
+.btn {
+   margin: 10px;
 }
 /* font-family: 'Amatic SC', cursive;
 font-family: 'Great Vibes', cursive; */
