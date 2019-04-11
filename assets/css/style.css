@@ -46,7 +46,14 @@ html {
 h2 {
  font-weight: bold;
 }
-
+.about-links {
+    margin: 10px;
+    text-align: center;
+}
+.fab {
+    font-size: 30px;
+    
+}
 
 
 .pos-f-t {
