@@ -1,0 +1,84 @@
+
+html {
+    scroll-behavior: smooth;
+    
+  }
+  body {
+    font-family: 'Poiret One', cursive;
+    font-size: 20px;
+   background: #01233f;
+  }
+
+.title {
+    padding-left: 20px;
+}
+.logo {
+    padding: 10px;
+    bottom: 10px;
+   
+   
+}
+.about-image {
+    border-radius: 50%;
+    margin-left: 20%;
+    
+}
+
+.about-name {
+    text-align: center;
+}
+.test-div {
+    display: block;
+    float: left;
+    color: #f4f4f4;
+    position: absolute;
+    top: 6px;
+    left: 80px;
+    font-family: 'Poiret One', cursive;
+    font-size: 36px;
+    
+}
+
+.form-control {
+    font-size: 16px;
+}
+
+h2 {
+ font-weight: bold;
+}
+.about-links {
+    margin: 10px;
+    text-align: center;
+}
+.fab {
+    font-size: 30px;
+    
+}
+
+
+.pos-f-t {
+    position: sticky;
+    top: 0;
+    z-index: 101;
+    
+}
+#myJournal {
+    margin: 50px;
+}
+.container {
+    min-height: 550px;
+    padding-top: 20px;
+    background: #f4f4f4;
+    color: #373737; 
+    margin-top: 50px;
+}
+
+#journal h2 {
+   
+    font-size: 36px;
+}
+.btn {
+   margin: 10px;
+}
+/* font-family: 'Amatic SC', cursive;
+font-family: 'Great Vibes', cursive; */

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Title</title>
+</head>
+
+<body>
+
+
+    <!-- Hard code of 7 countries cultures -->
+    <!-- This is a temporery fix to the lack APSs including this information -->
+    <!-- Future development of this project will include creating an API with this information -->
+    <!--Customs starts here  -->
+    <div id="customs" class="container">
+        <a id="culture" class="smooth"></a>
+
+        <h2>Local Customs</h2>
+        <h4>Choose from this list of popular destinations to learn the local customs before you go</h4>
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <div class="btn-group" role="group">
+                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Popular destinations
+                </button>
+                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <a class="dropdown-item" href="#">Brazil</a>
+                    <!--popular destinations-->
+                    <a class="dropdown-item" href="#">Spain</a>
+                    <a class="dropdown-item" href="#">Japan</a>
+                    <a class="dropdown-item" href="#">Russia</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- BRAZIL CUSTOMS -->
+        <div class="row country-container" id="brazil">
+            <div class="col-md-6">
+                <h3 class="country-head">Social Etiquette</h3>
+                <div id="customsGreetings">
+                    <h4>Greetings</h4>
+                    <p>Men shake hands when greeting one another, while maintaining steady eye contact.</p>
+                    <p>Women generally kiss each other, starting with the left and alternating cheeks.</p>
+                    <p>Hugging and backslapping are common greetings among Brazilian friends.</p>
+                    <p>If a woman wishes to shake hands with a man, she should extend her hand first.</p>
+                    <p>Personal space too is not the taboo it is in some countries and Brazilian people tend not to be
+                        uncomfortable when in close proximity with others .</p>
+                </div>
+                <div id="customsFood">
+                    <h4>Food</h4>
+                    <p>Brazilians dress with flair and judge others on their appearance.</p>
+                    <p>Casual dress is more formal than in many other countries. Always dress elegantly and err on the
+                        side of over-dressing rather than under- dressing.</p>
+                    <p>Do not eat food with your hands - including fruit. Items such as fruit should be cut with a knife
+                        and fork.</p>
+                    <p>The most honoured guest sits at the head of the table and hosts to sit either side.</p>
+                    <p>If invited to a restaurant it is normally the person who offers the invitation who pays although
+                        it is important to make an offer to pay.</p>
+                    <p>Brazilians often like to spend some time over a meal so expect to not rush off.</p>
+                </div>
+                <div id="customsGifts">
+                    <h4>Gift Giving</h4>
+                    <p>If invited to a Brazilian's house, bring the hostess flowers or a small gift.</p>
+                    <p>Avoid giving anything purple or black as these are mourning colours.</p>
+                    <p>Since handkerchiefs are associated with funerals they do not make good gifts.</p>
+                </div>
+                <div id="customsTaboos">
+                    <h4>Cultural Taboos</h4>
+                    <p>Although the Brazilians are typically tolerant people bear in mind that it is a Catholic country
+                        and raising religion in conversation particularly if expressing any strong atheistic views is a
+                        definite no-no.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3 class="country-head">Business Etiquette</h3>
+                <div id="business-basics">
+                    <p>Brazilians prefer face-to-face meetings to written communication as it allows them to know the
+                        person
+                        with whom they are doing business.</p>
+                    <p>Be courteous and do not openly criticise particularly in a group situation as this will cause
+                        offence.</p>
+                    <p>It is not frowned upon to interrupt someone when they are speaking as long as it is within
+                        context of
+                        the discussion and not to overtly disagree or criticise.</p>
+                    <p>Brazilians are very much in favour of properly drawn up legal documents.</p>
+                </div>
+                <div id="customsDress">
+                    <h4>What to Wear</h4>
+                    <p>The key to dress code in Brazil is to know the company with whom you are dealing. Some are more
+                        conservative than others but remember, the Brazilians are very proud of their appearance and
+                        being
+                        well dressed will earn respect.</p>
+                </div>
+                <div id="customsTitles">
+                    <h4>Titles</h4>
+                    <p>The formal way to greet a man is Senhor and Senhora for women. Single women and younger women
+                        should
+                        be greeted as Senhorita</p>
+                </div>
+                <div id="customsMeetings">
+                    <h4>Meetings</h4>
+                    <p>Do not appear impatient if you are kept waiting. Brazilians see time as something outside their
+                        control and the demands of relationships takes precedence over adhering to a strict schedule.
+                    </p>
+                    <p>Expect to be interrupted while you are speaking or making a presentation.</p>
+                </div>
+                <div id="customsNegotiating">
+                    <h4>Negotiating</h4>
+                    <p>Expect questions about your company since Brazilians are more comfortable doing business with
+                        people
+                        and companies they know.</p>
+                    <p>Wait for your Brazilian colleagues to raise the business subject. Never rush the relationship-
+                        building time.</p>
+                    <p>Brazilians take time when negotiating. Do not rush them or appear impatient.</p>
+                    <p>Expect a great deal of time to be spent reviewing details. Often the people you negotiate with
+                        will
+                        not have decision-making authority.</p>
+                    <p>It is advisable to hire a translator if your Portuguese is not fluent.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- This has country info in case we want it somewhere -->
+    <!-- <div class="row country-container" id="brazil">
+        <div class="col brief-info">
+            <h3 class="country-head">Facts and Statistics</h3>
+            <div class="info">
+                <p>Capital: Brazilia</p>
+                <p>Ethnic Make-up: White (includes Portuguese, German, Italian, Spanish, Polish) 55%, mixed white and
+                    black
+                    38%, black 6%, other (includes Japanese, Arab, Amerindian) 1%</p>
+                <p>Population: 211+ million (2019)</p>
+                <p>Climate: Although the climate is mostly tropical, it is temperate in the south</p>
+                <p>Time Zone: Brazil is a vast country with four standard time zones which are as follows: UTC – 2.00,
+                    03.00, 04.00, 05.00. </p>
+                <p>Currency: Brazilian Real</p>
+                <p>Language: Portuguese</p>
+                <p>Religion: Brazil is predominantly a Roman Catholic country with an estimated 65% of the population
+                    affiliated to the religion.</p>
+                <p>Family is of paramount importance to the Brazilian people and grown up children often remain with
+                    parents
+                    until they marry.</p>
+            </div>
+
+        </div>
+        </div> -->
+
+
+    <!-- JAPAN CUSTOMS -->
+    <div class="row country-container" id="japan">
+        <div class="col-md-6">
+            <h3 class="country-head">Social Etiquette</h3>
+            <div id="customsGreetings">
+                <h4>Greetings</h4>
+                <p>Greetings in Japan are very formal and ritualized. It is important to show the correct amount of
+                    respect and deference to someone based upon their status relative to your own.</p>
+                <p>Wait to be introduced. It is considered impolite to introduce yourself, even in a large gathering.
+                </p>
+                <p>While foreigners are expected to shake hands, the traditional form of greeting is the bow. How far
+                    you bow depends upon your relationship to the other person as well as the situation. The deeper you
+                    bow, the more respect you show.</p>
+                <p>A foreign visitor ('gaijin') may bow the head slightly, since no one expects foreigners to generally
+                    understand the subtle nuances of bowing.</p>
+                <p>The Japanese prefer to have some distance, at least arms-length in their personal space.</p>
+            </div>
+            <div id="customsFood">
+                <h4>Food</h4>
+                <p>On the rare occasion you are invited to a Japanese house: </p>
+                <p>Remove your shoes before entering and put on the slippers left at the doorway. Leave your shoes
+                    pointing away from the doorway you are about to walk through.</p>
+                <p>Arrive on time or no more than 5 minutes late if invited for dinner. Unless you have been told the
+                    event is casual, dress as if you were going into the office.</p>
+                <p>If you use the toilet, put on the available toilet slippers and remove them when you are finished. Do
+                    not wear them back out of the bathroom.</p>
+                <p>Wait to be told where to sit. There is a protocol to be followed. The honoured guest or the eldest
+                    person will be seated in the centre of the table the furthest from the door.</p>
+                <p>The honoured guest or the eldest is the first person to begin eating.</p>
+                <p>It will yield tremendous dividends if you learn to use chopsticks. Never point your chopsticks.
+                    Chopsticks should be returned to the chopstick rest after every few bites and when you drink or stop
+                    to speak. Do not cross your chopsticks when putting them on the chopstick rest.</p>
+                <p>Don't be surprised if your Japanese colleagues slurp their noodles and soup.</p>
+                <p>Mixing other food with rice is usually not done. You eat a bit of one and then a bit of the other,
+                    but they should never be mixed together as you do in many Western countries.</p>
+                <p>If you do not want anything more to drink, do not finish what is in your glass. An empty glass is an
+                    invitation for someone to serve you more.</p>
+                <p>If you leave a small amount of rice in your bowl, you will be given more. To signify that you do not
+                    want more rice, finish every grain in your bowl.</p>
+            </div>
+            <dib id="customsCommuniction">
+                <h4>Communication</h4>
+                <p>The Japanese rely on facial expression, tone of voice and posture to tell them what someone feels.
+                    They often trust non-verbal messages more than the spoken word as words can have several meanings.
+                </p>
+                <p>Frowning while someone is speaking is interpreted as a sign of disagreement. Most Japanese maintain
+                    an impassive expression when speaking.</p>
+                <p>Non-verbal communication is so vital that there is a book for 'gaijins' (foreigners) on how to
+                    interpret the signs!</p>
+                <p>It is considered disrespectful to stare into another person's eyes, particularly those of a person
+                    who is senior to you because of age or status.</p>
+                <p>In crowded situations the Japanese avoid eye contact to give themselves privacy.</p>
+            </dib>
+            <div id="customsGifts">
+                <h4>Gift Giving</h4>
+                <p>In Japan, gift-giving is highly ritualistic and meaningful. The ceremony of presenting the gift and
+                    the way in which it is wrapped is as important, and sometimes more important, than the gift itself.
+                </p>
+                <p>Do not give lilies, camellias or lotus blossoms as they are associated with funerals and avoid white
+                    flowers of any kind as they are associated with funerals.</p>
+                <p>Do not give potted plants as they encourage sickness, although a bonsai tree is always acceptable.
+                </p>
+                <p>Give items in odd numbers, but not 9 (the numbers 9 and 4 are considered unlucky in Japan)</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3 class="country-head">Business Etiquette</h3>
+            <div id="business-basics">
+                <p>Business cards are exchanged constantly and with great ceremony. Invest in quality cards.</p>
+                <p>Treat the business card you receive as you would the person. It is wise to have one side of your
+                    business card translated into Japanese.</p>
+                <p>Business cards are given and received with two hands and a slight bow.</p>
+            </div>
+            <div id="customsDress">
+                <h4>What to Wear</h4>
+                <p>It is important to dress smartly and conservatively. Men should wear a dark suit in the winter months
+                    with white shirt and tie that is not brightly coloured.</p>
+                <p>As the summer months can be very hot it is acceptable to wear half sleeve shirts and light grey
+                    suits.</p>
+                <p>Women should also dress conservatively, wear hair either short or tied back. Conspicuous jewellery or
+                    short skirts are not considered appropriate. </p>
+
+            </div>
+
+            <div id="customsMeetings">
+                <h4>Meetings</h4>
+                <p>Appointments are required and, whenever possible, should be made several weeks in advance.
+                </p>
+                <p>Punctuality is important. Arrive on time for meetings and expect your Japanese colleagues will do the
+                    same.</p>
+                <p>Since this is a group society, even if you think you will be meeting one person, be prepared for a
+                    group meeting.</p>
+                <p>The most senior Japanese person will be seated furthest from the door, with the rest of the people in
+                    descending rank until the most junior person is seated closest to the door.</p>
+                <p>It may take several meetings for your Japanese counterparts to become comfortable with you and be
+                    able to conduct business with you. This initial getting to know you time is crucial to laying the
+                    foundation for a successful relationship.</p>
+                <p>Never refuse a request, no matter how difficult or non- profitable it may appear. The Japanese are
+                    looking for a long-term relationship.</p>
+                <p>Always provide a package of literature about your company including articles and client testimonials.
+                </p>
+                <p>Always give a small gift, as a token of your esteem, and present it to the most senior person at the
+                    end of the meeting. Your Japanese contact can advise you on where to find something appropriate.</p>
+            </div>
+            <div id="CustomsPresentations">
+                <h4>Presentations</h4>
+                <p>Keep them formal and stick to the facts. Don’t try to impress with gimmicky designs.</p>
+                <p>Materials should be handed to the participants of the meeting rather than the more casual practice of
+                    ‘taking one and passing it on’.</p>
+                <p>Make sure the time schedule allows for questions and remember, the Japanese do not always raise their
+                    hands and will often look directly at you instead. It is up to the presenter to be aware and to
+                    politely ask if they wish to ask a question.</p>
+
+            </div>
+            <div id="customsNegotiating">
+                <h4>Negotiating</h4>
+                <p>The Japanese are non-confrontational. They have a difficult time saying 'no', so you must be vigilant
+                    at observing their non-verbal communication.</p>
+                <p>It is best to phrase questions so that they can answer yes. For example, do you disagree with this?
+                </p>
+                <p>The Japanese often remain silent for long periods of time. Be patient and try to work out if your
+                    Japanese colleagues have understood what was said.</p>
+                <p>Japanese prefer broad agreements and mutual understanding so that when problems arise they can be
+                    handled flexibly.</p>
+                <p>Some Japanese close their eyes when they want to listen intently.</p>
+                <p>The Japanese do not see contracts as final agreements so they can be renegotiated.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="col brief-info" id="japan">
+            <h3 class="country-head">Facts & Statistics</h3>
+            <div class="info">
+                <p>Capital: Tokyo</p>
+                <p>Ethnic Make-up: Japanese 98.5%, Koreans 0.5%, Chinese 0.4%, other 0.6% </p>
+                <p>Population: 126,702,133</p>
+                <p>Climate: The climate in Japan varies from tropical in the south to cool and temperate in the north.
+                </p>
+                <p>Time Zone: The time zone in Japan is JST (Japan Standard Time) and is nine hours ahead of UTC. </p>
+                <p>Currency: The currency in Japan is the Japanese Yen.</p>
+                <p>Language: Japanese</p>
+                <p>Religions: Shinto and Buddhism 84%, other 16% (including Christian 0.7%)</p>
+
+            </div>
+        </div> -->
+
+    <!-- UNITED ARAB EMIRATES -->
+    <div class="row country-container" id="uae">
+        <div class="col-md-6">
+            <h3 class="country-head">Social Etiquette</h3>
+            <div id="customsGreetings">
+                <h4>Greetings</h4>
+                <p>A long but steady handshake is common. Ensure you only use your right hand.</p>
+                <p>Arab men or women may decline to shake the hands of those from the other sex. This is a religious
+                    adherence practiced by many male and female Muslims. It is not personal and it should not be taken
+                    offensively. We suggest therefore, that men wait to see if a female offers her hand prior to
+                    offering his. </p>
+                <p>Likewise, if a female offers her hand and it is refused by a male, then we suggest the use of a
+                    gesture that is often used across the Muslim world as an alternative greeting whereby the right hand
+                    is placed flat over the heart, coupled with a brief nod of the head and a smile.</p>
+                <p>It is polite to greet the oldest or most senior members of the group first.</p>
+                <p>Maintain eye contact with people of the same sex.</p>
+                <p>It is not uncommon for men to greet other men with a kiss or a nose rub. Male friends often link arms
+                    or hold hands.</p>
+                <p>Members of the opposite sex do not embrace or kiss in public.</p>
+            </div>
+            <div id="customsFood">
+                <h4>Food</h4>
+                <p>Dining in the UAE is a very social affair and can be a means to doing business also.</p>
+                <p>It is considered polite to arrive fifteen minutes late.</p>
+                <p>Expect to eat with the right hand – the left hand is considered dirty. However, if you are left
+                    handed it is acceptable to eat with a utensil in the left hand. Arabs may eat with their hand only
+                    and without utensils. Hand cleanliness is therefore very important. </p>
+                <p>It is not considered polite to decline the offer of more food.</p>
+                <p>If dining in a restaurant give more than the service charge – up to 10% is acceptable.</p>
+            </div>
+
+            <div id="customsTaboos">
+                <h4>Taboos</h4>
+                <p>Do not discuss religion or criticise Islam.</p>
+                <p>Men should not stare at women or offer compliments</p>
+                <p>Do not go outside scantily dressed</p>
+                <p>Non-Muslims should not enter a mosque or touch a Qu’ran</p>
+                <p>Kissing or cuddling in public is strictly prohibited and such conduct can result in arrest.</p>
+                <p>Never give alcohol, pork products, knives or dog related items.</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3 class="country-head">Business Etiquette</h3>
+            <div id="business-basics">
+                <p>Be aware that the work week in the UAE runs from Sunday to Thursday. Friday and Saturday are weekend
+                    days.</p>
+                <p>Government office hours are typically between 07:30 and 15:00, although private office hours are
+                    typically open for longer and often finish as late as 21:00. However, where this is the case, a
+                    three to four-hour break at some point in the day is given.</p>
+                <p>Although timescales and deadlines are broadly adhered to, less priority is given to them compared to
+                    Western cultures. If therefore, you are a Westerner doing business in the UAE, then you may wish to,
+                    gently and politely, reinforce any deadlines.</p>
+                <p>Do not question the boss in a way that puts him / her on the spot as this will potentially cause a
+                    loss of face and will not be well received.</p>
+
+            </div>
+            <div id="customsDress">
+                <h4>What to Wear</h4>
+                <p>Dress conservatively. Men should wear a neat suit and tie.</p>
+                <p>Women should dress smartly and modestly ensuring that their arms are covered regardless of
+                    temperature.</p>
+            </div>
+
+            <div id="customsMeetings">
+                <h4>Meetings</h4>
+                <p>Punctuality is important and deemed respectful.</p>
+                <p>It is not unusual for meetings to seem a little disorganised and interruptions are not uncommon. An
+                    individual unrelated to the meeting may therefore join the meeting for a period and the subject may
+                    change accordingly. You may also find that some individuals make or receive calls during the
+                    meeting.</p>
+                <p>The Emiratis expect formality and respect.</p>
+                <p>Position is important and should be recognised.</p>
+                <p>Expect to be addressed by your title and be sure to research the position and titles of those with
+                    whom you do business.It is polite for instance, to address the head of the department or company as
+                    ‘Sheikh’.</p>
+
+
+            </div>
+            <div id="customsNegotiating">
+                <h4>Negotiating</h4>
+                <p>Building relations in UAE and personal contacts are paramount to successful business. If you have not
+                    taken the time and made the effort to build a positive relationship with your counterpart then it’s
+                    unlikely that they will trust you sufficiently to negotiate with you.</p>
+                <p>Any business agreements should be passed by a lawyer before signing on the dotted line.</p>
+                <p>If there is some doubt about the outcome of negotiations this should not be expressed too negatively
+                    and the word ‘no’ is best avoided.</p>
+                <p>Do not use high pressure tactics as these will not be tolerated and are likely to negatively impact
+                    proceedings.</p>
+            </div>
+            <div id="customsCommuniction">
+                <h4>Communication</h4>
+                <p>Small talk is common, indeed expected, and is often the prelude to business discussion.</p>
+                <p>Business is conducted on the basis of trust in the UAE and will fall short if individuals try to
+                    hurry on to business matters to hastily. Take the time to get to know your counterpart by asking
+                    generic questions and showing an interest in them personally. Ask about their children, their
+                    school, sporting interests, trips abroad etc. </p>
+                <p>Be aware of hierarchal structures and show due respect to those in a higher position. Use titles
+                    where appropriate.</p>
+                <p>Never criticize Islam, the ruling classes or local traditions. Never sit in a position that shows the
+                    soles of the feet. To do so is an insult as feet are considered dirty.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="col brief-info"  id="united-arab-emirates">
+            <h3 class="country-head"></h3>
+            <div class="info">
+                <p>Capital: Abu Dhabi.</p>
+                <p>Ethnic Make-up: Emirati 11.6%, South Asian 59.4% (includes Indian 38.2%, Bangladeshi 9.5%, Pakistani
+                    9.4%, other 2.3%), Egyptian 10.2%, Philippine 6.1%, other 12.8%</p>
+                <p>Population: 9.5 million+ </p>
+                <p>Climate: Desert; cooler in The eastern mountain area.</p>
+                <p>Time Zone: Gulf Time Zone – UTC+4:00</p>
+                <p>Currency: Dirham.</p>
+                <p>Language: Arabic</p>
+                <p>Religion: UAE Emiratis are predominantly Sunni Muslims and all social and political matters are
+                    driven by Sharia (Islamic) law.</p>
+                <p>Family is Key to UAE society and is based upon the long-held values of Emirati tribal kinship.
+                    Children
+                    are highly prized and families are close knit, preferring to reside in the same neighbourhood.</p>
+
+            </div>
+
+        </div> -->
+
+
+
+    <div class="row country-container" id="spain">
+        <div class="col-md-6">
+            <h3 class="country-head">Social Etiquette</h3>
+            <div id="customsGreetings">
+                <h4>Greetings</h4>
+                <p>When introduced expect to shake hands.</p>
+                <p>Once a relationship is established, men may embrace and pat each other on the shoulder. Female
+                    friends kiss each other on both cheeks, starting with the left.</p>
+                <p>People are often referred to as Don or Dona and their first name when in formal occasion as a general
+                    rule.</p>
+                <p>Many men use a two-handed shake where the left hand is placed on the right forearm of the other
+                    person.</p>
+                <p>Spanish people are open and friendly. In an informal situation whether with family close friends or
+                    virtual strangers they greet women with a kiss on each cheek.</p>
+                <p>Men have no fear of personal space with other men in an informal situation and they will often greet
+                    or say good-bye with a hug (abrazo).</p>
+
+            </div>
+            <div id="customsFood">
+                <h4>Food</h4>
+                <p>Remain standing until invited to sit down. You may be shown to a particular seat.</p>
+                <p>Always keep your hands visible when eating. Keep your wrists resting on the edge of the table.
+                </p>
+                <p>Do not begin eating until the hostess starts. The host gives the first toast. An honoured guest
+                    should return the toast later in the meal.</p>
+                <p>Indicate you have finished eating by laying your knife and fork parallel on your plate, tines facing
+                    up, with the handles facing to the right.</p>
+                <p>Do not get up until the guest of honour does.</p>
+            </div>
+
+            <div id="customsTaboos">
+                <h4>Taboos</h4>
+                <p>Do not talk about religion. The Spanish have a strong sense of religious pride.</p>
+                <p>Do not expect dinner in the evening to be any time before 9pm.</p>
+                <p>Do not plan anything for a Tuesday 13th as this is seen as an unlucky date.</p>
+                <p>It is not advisable to give chrysanthemums, white lilies or red roses and flowers should be in odd
+                    numbers except for 13 which is seen as an unlucky number.</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3 class="country-head">Business Etiquette</h3>
+            <div id="business-basics">
+                <p>First names only are used when addressing family, friends and children.</p>
+                <p>In business settings, it is recommended that you address your counterparts with ‘señor’, ‘señora’ or
+                    ‘señorita’ for men, women or unmarried women respectively.</p>
+                <p>When addressing a professional then use titles where appropriate (e.g. doctor / professor). It is not
+                    necessary to use titles however, when addressing Spanish business counterparts.</p>
+            </div>
+            <div id="customsDress">
+                <h4>What to Wear</h4>
+                <p>Business dress is stylish yet, conservative. Dress as you would in the rest of Europe.</p>
+            </div>
+
+            <div id="customsMeetings">
+                <h4>Meetings</h4>
+                <p>Several people may speak at once. You may be interrupted while you are speaking although this should
+                    not be seen as an insult. It often means that they are interested in what you are saying.</p>
+                <p>Decisions are not necessarily reached. Meetings are for discussion and to exchange ideas.</p>
+                <p>Most Spaniards do not give their opinion at meetings. Therefore, it is important to watch their
+                    non-verbal communication.</p>
+            </div>
+            <div id="customsNegotiating">
+                <h4>Negotiating</h4>
+                <p>Spaniards place great importance on the character of the person with whom they do business.</p>
+                <p>Hierarchy and rank are important. You should deal with people of similar rank to your own.</p>
+                <p>Spaniards do not like to lose face, so they will not necessarily say that they do not understand
+                    something, particularly if you are not speaking Spanish. You must be adept at discerning body
+                    language.</p>
+                <p>Spaniards are very thorough. They will review every minute detail to make certain it is understood.
+                </p>
+
+            </div>
+            <div id="customsCommuniction">
+                <h4>Communication</h4>
+                <p>Communication regarding business relationships is often quite formal and incorporates strict rules of
+                    protocol. Any form of confrontation is not acceptable and should be avoided.</p>
+                <p>Spanish people are proud and very protective of their standing and how others perceive them.</p>
+                <p>Boasting of achievement and personal accomplishment should be avoided.</p>
+                <p>Spanish people tend to be extrovert and friendly as is typical in Mediterranean culture and they
+                    place modesty and personality foremost to professional or business success.</p>
+                <p>Most young people in Spain are fluent in or at least have a good understanding of English but some
+                    older people may require the use of an interpreter.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="col brief-info">
+            <h3 class="country-head" id="spain"></h3>
+            <div class="info">
+                <p>Capital: Madrid </p>
+                <p>Ethnic Make-up: The ethnic groups in Spain are: Castilian (approx. 75%), Catalan (approx. 16%),
+                    Galician (approx. 6.5%) and Basque (approx. 2%.)</p>
+                <p>Population: 46+ million </p>
+                <p>Climate: temperate; clear, hot summers in interior, more moderate and cloudy along coast;
+                    cloudy, cold winters in interior, partly cloudy and cool along coast</p>
+                <p>Time Zone: Spain has two time Zones – Central European Time (GMT + 01.00) and daylight saving time –
+                    Central European Time (GMT + 02.00). </p>
+                <p>Currency: The currency in Spain is the Euro</p>
+                <p>Language: At least 90% of the population speak Castilian Spanish as a first or second language. About
+                    17% of the population speak Catalan, 7% speak Galician and 2% speak Basque. </p>
+                <p>Religion: Spain is a predominantly Roman Catholic country with approximately 94% of the population
+                    affiliated to that religion.</p>
+                <p>Traditionally, the family has been the basis of the social structure, including the nuclear and the
+                    extended family, which provide both social and financial support.</p>
+
+            </div>
+
+        </div> -->
+
+
+    <!-- add russia -->
+
+    <div class="row country-container" id="russia">
+        <div class="col-md-6">
+            <h3 class="country-head">Social Etiquette</h3>
+            <div id="customsGreetings">
+                <h4>Greetings</h4>
+                <p>The typical greeting is a firm, almost bone-crushing handshake while maintaining direct eye contact and giving the appropriate greeting for the time of day.</p>
+                <p>When men shake hands with women, the handshake is less firm.</p>
+                <p>When female friends meet, they kiss on the cheek three times, starting with the left and then alternating.</p>
+                <p>When close male friends meet, they may pat each other on the back and hug.</p>
+                <p></p>
+                <p></p>
+                <p></p>
+
+            </div>
+            <div id="customsFood">
+                <h4>Food</h4>
+                <p>The oldest or most honoured guest is served first. Do not begin eating until the host invites you to start.</p>
+                <p>Do not rest your elbows on the table, although your hands should be visible at all times.</p>
+                <p>You will often be urged to take second helpings.</p>
+                <p>It is polite to use bread to soak up gravy or sauce.</p>
+                <p>Men pour drinks for women seated next to them.</p>
+                <p>Leaving a small amount of food on your plate indicates that your hosts have provided ample hospitality.</p>
+                <p>Do not get up until you are invited to leave the table. At formal dinners, the guest of honor is the first to get up from the table.</p>
+            </div>
+
+            <div id="customsGifts">
+                <h4>Gift Giving</h4>
+                <p>If you are invited to a Russian home for a meal, bring a small gift. Male guests are expected to bring flowers.</p>
+                <p>Russians often protest when they are offered a gift. Reply that it is a little something and offer the gift again and it will generally be accepted.</p>
+                <p>Do not give yellow flowers.</p>
+                <p>Do not give a baby gift until after the baby is born. It is bad luck to do so sooner.</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3 class="country-head">Business Etiquette</h3>
+            <div id="business-basics">
+                <p>Include advanced university degrees on your business card.</p>
+
+            </div>
+            <div id="customsDress">
+                <h4>What to Wear</h4>
+                <p>Business dress is formal and conservative.</p>
+                <p>Men should wear business suits.</p>
+                <p>Women should wear subdued coloured business suits with skirts that cover the knees.</p>
+                <p>Shoes should be highly polished.</p>
+
+            </div>
+
+            <div id="customsMeetings">
+                <h4>Meetings</h4>
+                <p>Appointments are necessary and should be made as far in advance as possible.</p>
+                <p>It often takes roughly 6 weeks to arrange a meeting with a government official.</p>
+                <p>The first week of May has several public holidays so it is best avoided.</p>
+                <p>The first meeting is often a vehicle to determine if you and the company you represent are credible and worthy of consideration for future business dealings.</p>
+                <p>Russians expect long and detailed presentations that include a history of the subject and a review of existing precedents.</p>
+                <p>Meetings are frequently interrupted. It is common for several side conversations that have nothing to do with the topic of the meeting to be carried on during the meeting.</p>
+                <p>At the end of the meeting, expect to sign a 'protokol', which is a summary of what was discussed.</p>
+            </div>
+            <div id="customsCommuniction">
+                <h4>Communication</h4>
+                <p>Russians are transactional and do not need to establish long-standing personal relationships before they do business with people. It is still a good idea to develop a network of people who you know and trust. The Russian word "svyasi" means connections and refers to having friends in high places, which is often required to cut through red tape.</p>
+                <p>Patience is essential.</p>
+                <p>Sincerity is crucial as it is required to build trust, and trust is needed to build a relationship.
+                </p>
+                <p>Most Russians do not trust people who are 'all business'.</p>
+                <p>An indication that you have successfully developed a personal relationship is being asked for a favour by that person.</p>
+
+            </div>
+            <div id="customsNegotiating">
+                <h4>Negotiating</h4>
+                <p>Meetings and negotiations are slow. Russians do not like being rushed.</p>
+                <p>It is a good idea to include technical experts on your negotiating team.</p>
+                <p>Hierarchy is important to Russians. They respect age, rank and position. The most senior person reaches decisions. Russian executives prefer to meet with people of similar rank and position.</p>
+                <p>Russians see negotiations as win-lose. They do not believe in win-win scenarios.</p>
+                <p>Russians view compromise as weakness. They will continue negotiating until you offer concessions.</p>
+                <p>Russians may lose their temper, walk out of the meeting, or threaten to terminate the relationship in an attempt to coerce you to change your position.</p>
+                <p>Russians often use time as a tactic, especially if they know that you have a deadline. Be cautious about letting your business colleagues know that you are under time pressure or they will delay even more.</p>
+                <p>Nothing is final until the contract is signed. Even then, Russians will modify a contract to suit their purposes.</p>
+                <p>Do not use high-pressure sales tactics as they will work against you.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
