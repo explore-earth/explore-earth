@@ -16,7 +16,23 @@ html {
     padding: 10px;
     bottom: 10px;
    
-   
+}
+.modal-content {
+    background: #01233f;
+    color: #e6d5be;
+}
+.sub-title {
+    color: #53853c;
+}
+#search-bar-inner {
+    display: none;
+}
+h4, .country-head {
+    font-weight: bold;
+}
+
+#info-container {
+    margin-top: 20px;
 }
 .about-image {
     border-radius: 50%;
@@ -82,3 +98,33 @@ h2 {
 }
 /* font-family: 'Amatic SC', cursive;
 font-family: 'Great Vibes', cursive; */
+
+@media screen and (max-width: 720px) {
+    
+    .test-div {
+        font-size: 3rem;
+    }
+
+#search-bar-outer {
+    display: none;
+}
+#search-bar-inner {
+    display: block;
+}
+
+.about-image {
+    border-radius: 50%;
+    margin: 30%;
+    
+}
+  }
+  
+  @media screen and (max-width: 500px) {
+    
+    .test-div {
+        font-size: 2rem;
+    }
+
+
+
+  }
