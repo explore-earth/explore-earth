@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Exploration Enhancer</title>
+    <title>Engaged Explorer</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One|Tangerine" rel="stylesheet">
@@ -26,11 +26,11 @@
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <label>Enter the country you would like to visit to get local information.</label>
+                            <label>Enter the city you would like to visit to get local information.</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" aria-label="Text input with dropdown button">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                    <button class="btn btn-outline-light dropdown-toggle" type="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recent
                                         Searches</button>
                                     <div class="dropdown-menu">
@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" id="modalSubmit" class="btn btn-primary">Log In</button>
+                        <button type="submit" id="modalSubmit" class="btn btn-success">Log In</button>
                         <button type="submit" id="modalSubmit" class="btn btn-light">Continue as guest</button>
                     </form>
                 </div>
@@ -59,9 +59,9 @@
                         <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
                             title="Journal about your experiences to remember">My Journal</h5>
                     </a>
-                    <a href="#myFavorites">
+                    <a href="#">
                         <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
-                            title="Save your favorite cities and activiities here">My Favorites</h5>
+                            title="Save your favorite cities and activiities here">Log In or Create an Account</h5>
                     </a>
                 </div>
                 <a href="#culture">
@@ -84,6 +84,11 @@
                     <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
                         title="Read about who we are">About Us</h5>
                 </a>
+                <form class="form-inline my-2 my-lg-0" id="search-bar-inner">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search for new cities"
+                        aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </div>
         </div>
         <nav class="navbar navbar-dark bg-dark">
@@ -93,10 +98,10 @@
                 <span class="navbar-toggler-icon"></span>
                 
                 <div class="test-div">
-                    <img src="./assets/images/logo2.png" width="50px" >Exploration Enhancer
+                    <img src="./assets/images/logo2.png" width="50px" >Engaged Explorer
                 </div>
             </button>
-            <form class="form-inline my-2 my-lg-0">
+            <form class="form-inline my-2 my-lg-0" id="search-bar-outer">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search for new cities"
                     aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -114,21 +119,21 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://via.placeholder.com/1500x750" class="d-block w-100" alt="Placeholder">
+                        <img src="https://source.unsplash.com/1600x900/?wanderlust" class="d-block w-100" alt="Placeholder">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Plan your next trip</h5>
                             <p>Find cool new places to visit</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://via.placeholder.com/1500x750" class="d-block w-100" alt="Placeholder">
+                        <img src="https://source.unsplash.com/1600x900/?cultural" class="d-block w-100" alt="Placeholder">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Learn the culture</h5>
                             <p>Learn local norms and customs to help you interact with the locals</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://via.placeholder.com/1500x750" class="d-block w-100" alt="Placeholder">
+                        <img src="https://source.unsplash.com/1600x900/?beach" class="d-block w-100" alt="Placeholder">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Remember your adventures</h5>
                             <p>Document your trips with out journal and favorites feature for members</p>
@@ -155,22 +160,9 @@
     
         <h2>Local Customs</h2>
         <h4>Choose from this list of popular destinations to learn the local customs before you go</h4>
-        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-            <div class="btn-group" role="group">
-                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Popular destinations
-            </button>
-            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="#">Brazil</a>
-                <!--popular destinations-->
-                <a class="dropdown-item" href="#">Spain</a>
-                <a class="dropdown-item" href="#">Japan</a>
-                <a class="dropdown-item" href="#">Russia</a>
-            </div>
-        </div>
-    </div>
-    <div class="row">
+       
+    
+    <div class="row" id="info-container">
              <div class="col-md-6">
                 <div id="customsGreetings">
                     <h4>Greatings</h4>
@@ -261,7 +253,7 @@
                     excepturi sit perspiciatis vel impedit deleniti itaque iste officia saepe cumque. Velit culpa
                     praesentium dolor alias excepturi?</p>
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">New
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg">New
                     journal entry</button>
 
                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
@@ -280,11 +272,20 @@
                                         <textarea class="form-control" id="exampleFormControlTextarea1"
                                             rows="3"></textarea>
                                     </div>
+                                    <div class="input-group mb-3">
+                                            <div class="custom-file">
+                                              <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                              <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Photo</label>
+                                            </div>
+                                            <div class="input-group-append">
+                                              <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+                                            </div>
+                                          </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-success">Save changes</button>
                             </div>
                         </div>
                     </div>
@@ -323,7 +324,7 @@
                         </div>
                     </div>
                     <!-- button to calculate currency -->
-                    <button type="button" id="calculateCurrency" class="btn btn-primary">Calculate</button>
+                    <button type="button" id="calculateCurrency" class="btn btn-success">Calculate</button>
                     <input type="text" class="form-control" aria-label="Text input with dropdown button">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
@@ -366,6 +367,7 @@
                 <h2>Map of Area</h2>
                 <h5>Find local activities to enjoy</h5>
             </div>
+            <!-- smooth scroll link -->
             <a id="about" class="smooth"></a>
         </div>
         
@@ -387,7 +389,7 @@
                             <p class="about-links"><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-github-square"></i></a></p>
                     </div><!-- /.col-md-3 -->
                     <div class="col-md-3">
-                        <img src="./assets/images/bluesprings.jpg" class="about-image" width="140px" height="140px" alt="Greg">
+                        <img src="https://via.placeholder.com/250" class="about-image" width="140px" height="140px" alt="Greg">
                         <h2 class="about-name">Greg Baker</h2>
                         <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras
                             mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris
