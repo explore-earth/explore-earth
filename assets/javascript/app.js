@@ -4,12 +4,12 @@ $(function () {
 
 // Firebase authentication starts here
   var config = {
-    apiKey: "AIzaSyBVduicjSagRcZbWga7LhS6zrCIq0OZYuw",
-    authDomain: "daredevils-project.firebaseapp.com",
-    databaseURL: "https://daredevils-project.firebaseio.com",
-    projectId: "daredevils-project",
-    storageBucket: "daredevils-project.appspot.com",
-    messagingSenderId: "746048417171"
+    apiKey: "AIzaSyD1z4ChJJE8vLLLZ7MJYYoltlNrlTbzWjM",
+    authDomain: "explore-earth.firebaseapp.com",
+    databaseURL: "https://explore-earth.firebaseio.com",
+    projectId: "explore-earth",
+    storageBucket: "",
+    messagingSenderId: "906400318574"
   };
   firebase.initializeApp(config);
 
