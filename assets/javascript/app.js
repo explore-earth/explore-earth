@@ -101,8 +101,8 @@ $('.navbar-toggler').click(function(){
           // [END_EXCLUDE]
         }
 //         // [START_EXCLUDE]
-        document.getElementById('modalSumit').addEventListener('click', toggleSignIn, false);
-    }
+        document.getElementById('modalSubmit').addEventListener('click', toggleSignIn, false);
+    });
     window.onload = function() {
       initApp();
     }}
