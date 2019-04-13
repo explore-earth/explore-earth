@@ -1,14 +1,13 @@
+$(function () {
+    $("#modal").modal('show');
+});
+
 $('.menu-link').click(function(){ 
 $('.collapse').hide();
 });
 $('.navbar-toggler').click(function(){ 
   $('.collapse').show();
   });
-
-$(function () {
-    $("#modal").modal('show');
-});
-
 // Firebase authentication starts here
   var config = {
     apiKey: "AIzaSyD1z4ChJJE8vLLLZ7MJYYoltlNrlTbzWjM",
