@@ -1,3 +1,10 @@
+$('.menu-link').click(function(){ 
+$('.collapse').hide();
+});
+$('.navbar-toggler').click(function(){ 
+  $('.collapse').show();
+  });
+
 $(function () {
     $("#modal").modal('show');
 });
