@@ -3,11 +3,11 @@ $(function () {
 });
 
 $('.menu-link').click(function(){ 
-$('.collapse').hide();
+    $('.collapse').hide();
 });
 $('.navbar-toggler').click(function(){ 
-  $('.collapse').show();
-  });
+    $('.collapse').show();
+});
 // Firebase authentication starts here
   var config = {
     apiKey: "AIzaSyD1z4ChJJE8vLLLZ7MJYYoltlNrlTbzWjM",
@@ -106,9 +106,7 @@ $('.navbar-toggler').click(function(){
 //       });
 //       // [END authstatelistener]
 //       document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-//     }
+    });
     window.onload = function() {
       initApp();
-    };
-
-// firebase authentication ends here
+    }}
