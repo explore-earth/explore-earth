@@ -9,18 +9,10 @@ $('.navbar-toggler').click(function () {
   $('.collapse').show();
 });
 
-<<<<<<< HEAD
-$("#modalSubmit").click(toggleSignIn, function () {
+$("#menu-login").click(toggleSignIn, function () {
   console.log("clicky");
 });
 
-=======
-$("#modalSubmit").click(function(){ 
-    console.log("clicky");     
-
-});
-    
->>>>>>> 3771d93e1999277c3ab4bb028e132f9c8fdf1201
 // Firebase authentication starts here
 var config = {
   apiKey: "AIzaSyBVduicjSagRcZbWga7LhS6zrCIq0OZYuw",
@@ -32,7 +24,6 @@ var config = {
 };
 firebase.initializeApp(config);
 
-<<<<<<< HEAD
 /**
  * Function called when clicking the Login/Logout button.
  */
@@ -69,49 +60,6 @@ function toggleSignIn() {
         alert('You have already signed up with a different auth provider for that email.');
         // If you are using multiple auth providers on your app you should handle linking
         // the user's accounts here.
-=======
-    /**
-     * Function called when clicking the Login/Logout button.
-     */
-    // [START buttoncallback]
-    function toggleSignIn() {
-      if (!firebase.auth().currentUser) {
-        // [START createprovider]
-        console.log("something");
-        var provider = new firebase.auth.GoogleAuthProvider();
-        // [END createprovider]
-        // [START addscopes]
-        provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-        // [END addscopes]
-        // [START signin]
-        firebase.auth().signInWithPopup(provider).then(function(result) {
-          // This gives you a Google Access Token. You can use it to access the Google API.
-          var token = result.credential.accessToken;
-          // The signed-in user info.
-          var user = result.user;
-          // [START_EXCLUDE]
-//           document.getElementById('quickstart-oauthtoken').textContent = token;
-          // [END_EXCLUDE]
-        }).catch(function(error) {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // The email of the user's account used.
-          var email = error.email;
-          // The firebase.auth.AuthCredential type that was used.
-          var credential = error.credential;
-          // [START_EXCLUDE]
-          if (errorCode === 'auth/account-exists-with-different-credential') {
-            alert('You have already signed up with a different auth provider for that email.');
-            // If you are using multiple auth providers on your app you should handle linking
-            // the user's accounts here.
-          } else {
-            console.error(error);
-          }
-          // [END_EXCLUDE]
-        });
-        // [END signin]
->>>>>>> 3771d93e1999277c3ab4bb028e132f9c8fdf1201
       } else {
         console.error(error);
       }
@@ -164,7 +112,7 @@ function initApp() {
     }
   });
     //         // [START_EXCLUDE]
-    document.getElementById('modalSubmit').addEventListener('click', toggleSignIn, false);
+    document.getElementById('menu-login').addEventListener('click', toggleSignIn, false);
   }
   
 
@@ -172,15 +120,8 @@ function initApp() {
   //          
 
 
-<<<<<<< HEAD
   window.onload = function () {
     console.log("running");
     initApp();
   }
 
-=======
-             
-window.onload = function() {
-  initApp();
-}}
->>>>>>> 3771d93e1999277c3ab4bb028e132f9c8fdf1201
