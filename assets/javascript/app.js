@@ -105,12 +105,12 @@ $('.navbar-toggler').click(function(){
         }
 //         // [START_EXCLUDE]
         // document.getElementById('modalSubmit').addEventListener('click', toggleSignIn);
+});
+
 $("#modalSubmit").click(toggleSignIn, function(){ 
     console.log("clicky");     
-});
-              
+
+});             
 window.onload = function() {
   initApp();
-}
-
-})}
+}}
