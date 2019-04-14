@@ -37,7 +37,7 @@ $("#modalSubmit").click(function(){
         provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
         // [END addscopes]
         // [START signin]
-        firebase.auth().signInWithRedirect(provider).then(function(result) {
+        firebase.auth().signInWithPopup(provider).then(function(result) {
           // This gives you a Google Access Token. You can use it to access the Google API.
 //           var token = result.credential.accessToken;
           // The signed-in user info.
@@ -86,8 +86,9 @@ $("#modalSubmit").click(function(){
         if (user) {
           // User is signed in.
             var photoURL = $("<img>");
-            $("#user-avatar").attr("src","user.photoURL");
             $("#user-avatar").append(photoURL);
+            $("#user-avatar").attr("src","user.photoURL");
+            
 //           var email = user.email;
 //           var emailVerified = user.emailVerified;
 //           var photoURL = user.photoURL;
@@ -106,7 +107,7 @@ $("#modalSubmit").click(function(){
           // [END_EXCLUDE]
         }
 //         // [START_EXCLUDE]
-        document.getElementById('menu-login').addEventListener('click', toggleSignIn);
+        document.getElementById('modalSubmit').addEventListener('click', toggleSignIn);
     });
         
     window.onload = function() {
