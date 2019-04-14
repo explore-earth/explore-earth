@@ -9,7 +9,7 @@ $('.navbar-toggler').click(function(){
     $('.collapse').show();
 });
 
-$("#modalSubmit").addEventListener('click'){
+$("#modalSubmit").click(function(){ 
             console.log("clicky");
 // Firebase authentication starts here
   var config = {
