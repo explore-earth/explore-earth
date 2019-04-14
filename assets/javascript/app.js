@@ -35,7 +35,7 @@ $('.navbar-toggler').click(function(){
         // [START signin]
         firebase.auth().signInWithRedirect(provider).then(function(result) {
           // This gives you a Google Access Token. You can use it to access the Google API.
-          var token = result.credential.accessToken;
+//           var token = result.credential.accessToken;
           // The signed-in user info.
           var user = result.user;
           // [START_EXCLUDE]
@@ -81,7 +81,8 @@ $('.navbar-toggler').click(function(){
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           // User is signed in.
-          var photoURL = user.photoURL
+            var photoURL = $("<img>");
+            $("#user-avatar").attr("src","user.photoURL");
             $("#user-avatar").append(photoURL);
 //           var email = user.email;
 //           var emailVerified = user.emailVerified;
@@ -97,11 +98,11 @@ $('.navbar-toggler').click(function(){
         } else {
           // User is signed out.
           // [START_EXCLUDE]
-          $("#user-avatar").empty;
+          $("#user-avatar").hide;
           // [END_EXCLUDE]
         }
 //         // [START_EXCLUDE]
-        document.getElementById('menu-login').addEventListener('click', toggleSignIn, false);
+        document.getElementById('menu-login').addEventListener('click', toggleSignIn);
     });
     window.onload = function() {
       initApp();
