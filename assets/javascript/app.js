@@ -108,6 +108,7 @@ $("#modalSubmit").click(function(){
         }
 //         // [START_EXCLUDE]
         document.getElementById('modalSubmit').addEventListener('click', toggleSignIn);
+        console.log("test");
     });
         
     window.onload = function() {
