@@ -26,6 +26,7 @@ $('.navbar-toggler').click(function(){
     function toggleSignIn() {
       if (!firebase.auth().currentUser) {
         // [START createprovider]
+        console.log("something");
         var provider = new firebase.auth.GoogleAuthProvider();
         // [END createprovider]
         // [START addscopes]
