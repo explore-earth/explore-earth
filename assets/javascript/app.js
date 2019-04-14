@@ -36,7 +36,7 @@ $('.navbar-toggler').click(function(){
         // [START signin]
         firebase.auth().signInWithPopup(provider).then(function(result) {
           // This gives you a Google Access Token. You can use it to access the Google API.
-//           var token = result.credential.accessToken;
+          var token = result.credential.accessToken;
           // The signed-in user info.
           var user = result.user;
           // [START_EXCLUDE]
@@ -107,7 +107,7 @@ $('.navbar-toggler').click(function(){
         // document.getElementById('modalSubmit').addEventListener('click', toggleSignIn);
 });
 
-$("#modalSubmit").click(toggleSignIn, function(){ 
+$("#modalSubmit").on("click", toggleSignIn, function(){ 
     console.log("clicky");     
 
 });             
