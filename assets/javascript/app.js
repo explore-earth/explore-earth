@@ -32,7 +32,7 @@ $('.navbar-toggler').click(function(){
         provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
         // [END addscopes]
         // [START signin]
-        firebase.auth().signInWithPopup(provider).then(function(result) {
+        firebase.auth().signInWithRedirect(provider).then(function(result) {
           // This gives you a Google Access Token. You can use it to access the Google API.
           var token = result.credential.accessToken;
           // The signed-in user info.
@@ -101,7 +101,7 @@ $('.navbar-toggler').click(function(){
           // [END_EXCLUDE]
         }
 //         // [START_EXCLUDE]
-        document.getElementById('modalSubmit').addEventListener('click', toggleSignIn, false);
+        document.getElementById('menu-login').addEventListener('click', toggleSignIn, false);
     });
     window.onload = function() {
       initApp();
