@@ -5,12 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Engaged Explorer</title>
+    <title>Explore Earth</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One|Tangerine" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
 </head>
 
 <body>
@@ -41,8 +48,8 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" id="modalSubmit" class="btn btn-success">Log In</button>
-                        <button type="submit" id="modalSubmit" class="btn btn-light">Continue as guest</button>
+                        <button type="button" id="modalSubmit" class="btn btn-success">Log In</button>
+                        <button type="button" id="modalSubmit-guest" class="btn btn-light">Continue as guest</button>
                     </form>
                 </div>
             </div>
@@ -51,43 +58,44 @@
     <!-- Nav -->
 
     <div class="pos-f-t">
-        <div class="collapse" id="navbarToggleExternalContent">
+        <div class="collapse nav-bar nav-bar-collapse" id="navbarToggleExternalContent">
             <div class="bg-dark p-4">
                 <!--dropdown menu content-->
                 <div id="memberFeatures">
-                    <a href="#myJournal">
+                    <a class="menu-link" href="#myJournal">
                         <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
                             title="Journal about your experiences to remember">My Journal</h5>
                     </a>
-                    <a href="#">
+                    <a class="menu-link">
                         <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
-                            title="Save your favorite cities and activiities here">Log In or Create an Account</h5>
+                            title="Save your favorite cities and activities here">Log In</h5>
                     </a>
                 </div>
-                <a href="#culture">
+                <a class="menu-link" href="#culture">
                     <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
                         title="Get information on the local customs and culture">Cultural Information</h5>
                 </a>
-                <a href="#map">
+                <a class="menu-link" href="#map">
                     <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
                         title="Find local sites and activities">Maps</h5>
                 </a>
-                <a href="#currency">
+                <a class="menu-link" href="#currency">
                     <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
                         title="Make sure you get a good deal with a currency converter">Currency</h5>
                 </a>
-                <a href="#weather">
+                <a class="menu-link" href="#weather">
                     <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
                         title="Check the local weather before you head out">Weather</h5>
                 </a>
-                <a href="#about">
+                <a class="menu-link" href="#about">
                     <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
                         title="Read about who we are">About Us</h5>
                 </a>
                 <form class="form-inline my-2 my-lg-0" id="search-bar-inner">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search for new cities"
-                        aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <input id="minicitySearch" class="form-control mr-sm-2" type="search"
+                        placeholder="Search for new cities" aria-label="Search">
+                    <button id="minisearchButton" class="btn btn-outline-success my-2 my-sm-0"
+                        type="submit">Search</button>
                 </form>
             </div>
         </div>
@@ -96,77 +104,79 @@
                 data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-                
+
                 <div class="test-div">
-                    <img src="./assets/images/logo2.png" width="50px" >Engaged Explorer
+                    <img src="./assets/images/logo2.png" width="50px">Explore Earth
                 </div>
             </button>
             <form class="form-inline my-2 my-lg-0" id="search-bar-outer">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search for new cities"
+                <div id="user-avatar"></div>
+                <input id="citySearch" class="form-control mr-sm-2" type="search" placeholder="Search for new cities"
                     aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </nav>
-</div>
-        <!-- Home Page / carousel -->
+    </div>
+    <!-- Home Page / carousel -->
 
-        <div class="bd-example">
-            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="10000">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://source.unsplash.com/1600x900/?wanderlust" class="d-block w-100" alt="Placeholder">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Plan your next trip</h5>
-                            <p>Find cool new places to visit</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://source.unsplash.com/1600x900/?cultural" class="d-block w-100" alt="Placeholder">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Learn the culture</h5>
-                            <p>Learn local norms and customs to help you interact with the locals</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://source.unsplash.com/1600x900/?beach" class="d-block w-100" alt="Placeholder">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Remember your adventures</h5>
-                            <p>Document your trips with out journal and favorites feature for members</p>
-                        </div>
+    <div class="bd-example">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="10000">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://source.unsplash.com/1600x900/?wanderlust" class="d-block w-100" alt="nextTrip">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Plan your next trip</h5>
+                        <p>Find cool new places to visit</p>
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                <div class="carousel-item">
+                    <img src="https://source.unsplash.com/1600x900/?cultural" class="d-block w-100" alt="culture">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Learn the culture</h5>
+                        <p>Learn local norms and customs to help you interact with the locals</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://source.unsplash.com/1600x900/?beach" class="d-block w-100"
+                        alt="rememberAdventures">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Remember your adventures</h5>
+                        <p>Document your trips with the journal and favorites feature for members</p>
+                    </div>
+                </div>
             </div>
-            <a id="culture" class="smooth"></a>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        
-        <br>
+        <a id="culture" class="smooth"></a>
+    </div>
 
-       <!--Customs starts here  -->
-<div id="customs" class="container">
-        
-    
+    <br>
+
+    <!--Customs starts here  -->
+    <div id="customs" class="container">
+
+
         <h2>Local Customs</h2>
-        <h4>Choose from this list of popular destinations to learn the local customs before you go</h4>
-       
-    
-    <div class="row" id="info-container">
-             <div class="col-md-6">
+        <h4>Learn the local customs before you go</h4>
+
+
+        <div class="row" id="info-container">
+            <div class="col-md-6">
                 <div id="customsGreetings">
-                    <h4>Greatings</h4>
-                    <p>In this section we will talk about how to great others</p>
+                    <h4>Greetings</h4>
+                    <p>In this section we will talk about how to greet others</p>
                 </div>
                 <div id="customsFood">
                     <h4>Food</h4>
@@ -178,13 +188,13 @@
                 </dib>
                 <div id="customsTaboos">
                     <h4>Cultural Taboos</h4>
-                    <p>In this section we will talk about what NOT to to.</p>
+                    <p>In this section we will talk about what NOT to do.</p>
                 </div>
             </div>
             <div class="col-md-6">
                 <div id="customsGreetings">
-                    <h4>Greatings</h4>
-                    <p>In this section we will talk about how to great others</p>
+                    <h4>Greetings</h4>
+                    <p>In this section we will talk about how to greet others</p>
                 </div>
                 <div id="customsFood">
                     <h4>Food</h4>
@@ -196,252 +206,294 @@
                 </dib>
                 <div id="customsTaboos">
                     <h4>Cultural Taboos</h4>
-                    <p>In this section we will talk about what NOT to to.</p>
+                    <p>In this section we will talk about what NOT to do.</p>
                 </div>
             </div>
         </div>
         <a id="myJournal" class="smooth"></a>
     </div>
-    
-        <br>
+
+    <br>
 
 
-        <!-- Journal starts here -->
-       
-        <div id="journal" class="container">
-            
-            <div class="col-md-12">
-                <h2>Journal</h2>
-                
-                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                    <button type="button" class="btn btn-secondary">Most Recent Entry</button>
-                    <div class="btn-group" role="group">
-                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Previous Entries
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <a class="dropdown-item" href="#">Link to previous entry</a>
-                            <a class="dropdown-item" href="#">Link to previous entry</a>
-                        </div>
+    <!-- Journal starts here -->
+
+    <div id="journal" class="container">
+
+        <div class="col-md-12">
+            <h2>Journal</h2>
+
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <button type="button" class="btn btn-secondary">Most Recent Entry</button>
+                <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Previous Entries
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <a class="dropdown-item" href="#">Link to previous entry</a>
+                        <a class="dropdown-item" href="#">Link to previous entry</a>
                     </div>
                 </div>
-                
-                <h4>Location: ...</h4>
-                <img src="https://via.placeholder.com/250" style="float:left; margin:10px" alt="Journal image"
-                    class="journalImage">
-                <p>Journal entries will be displayed here. A paragraph of text with an <a href="#">unassigned link.</a>
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam iste mollitia nam ab sit, expedita
-                    obcaecati nemo, minus adipisci ea esse itaque facilis? Quaerat, fuga commodi aliquid natus saepe
-                    perferendis!</p>
-                <p>Sunt fuga culpa, dolorum in a omnis ut, natus delectus nobis fugit atque cumque aperiam facere
-                    temporibus voluptatum, sed excepturi sequi! Laudantium quis distinctio ipsam temporibus alias quo
-                    repellendus iusto.</p>
-                <p>Numquam, qui quidem voluptatem, harum expedita vel nisi repellendus quisquam sapiente deserunt
-                    blanditiis? Ipsam quasi, veritatis qui cum voluptate doloremque consequatur suscipit animi itaque
-                    natus fugiat, cumque labore laudantium necessitatibus.</p>
-                <img src="https://via.placeholder.com/250" style="float:right; margin:10px" alt="Journal image"
-                    class="journalImage">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum assumenda labore expedita modi nam
-                    saepe minus odit vitae sequi, atque harum commodi, velit nostrum explicabo fugit quaerat ducimus
-                    officiis rem.</p>
-                <p>Dolorum quo quasi qui dignissimos expedita a sequi suscipit? Officia cupiditate nisi quos labore ex
-                    excepturi, consequatur asperiores provident perferendis animi voluptatum amet totam soluta eum hic
-                    dolore dolorem? Rem.</p>
-                <p>Dignissimos possimus sed vitae accusamus. Placeat deserunt similique omnis accusantium et, ad ipsa
-                    excepturi sit perspiciatis vel impedit deleniti itaque iste officia saepe cumque. Velit culpa
-                    praesentium dolor alias excepturi?</p>
+            </div>
 
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg">New
-                    journal entry</button>
+            <h4>Location: ...</h4>
+            <img src="https://via.placeholder.com/250" style="float:left; margin:10px" alt="Journal image"
+                class="journalImage">
+            <p>Journal entries will be displayed here. A paragraph of text with an <a href="#">unassigned link.</a>
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam iste mollitia nam ab sit, expedita
+                obcaecati nemo, minus adipisci ea esse itaque facilis? Quaerat, fuga commodi aliquid natus saepe
+                perferendis!</p>
+            <p>Sunt fuga culpa, dolorum in a omnis ut, natus delectus nobis fugit atque cumque aperiam facere
+                temporibus voluptatum, sed excepturi sequi! Laudantium quis distinctio ipsam temporibus alias quo
+                repellendus iusto.</p>
+            <p>Numquam, qui quidem voluptatem, harum expedita vel nisi repellendus quisquam sapiente deserunt
+                blanditiis? Ipsam quasi, veritatis qui cum voluptate doloremque consequatur suscipit animi itaque
+                natus fugiat, cumque labore laudantium necessitatibus.</p>
+            <img src="https://via.placeholder.com/250" style="float:right; margin:10px" alt="Journal image"
+                class="journalImage">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum assumenda labore expedita modi nam
+                saepe minus odit vitae sequi, atque harum commodi, velit nostrum explicabo fugit quaerat ducimus
+                officiis rem.</p>
+            <p>Dolorum quo quasi qui dignissimos expedita a sequi suscipit? Officia cupiditate nisi quos labore ex
+                excepturi, consequatur asperiores provident perferendis animi voluptatum amet totam soluta eum hic
+                dolore dolorem? Rem.</p>
+            <p>Dignissimos possimus sed vitae accusamus. Placeat deserunt similique omnis accusantium et, ad ipsa
+                excepturi sit perspiciatis vel impedit deleniti itaque iste officia saepe cumque. Velit culpa
+                praesentium dolor alias excepturi?</p>
 
-                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5>New entry</h5>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label>Where was this?</label>
-                                        <input class="form-control" type="text" placeholder="Location">
-                                        <label>Write about your experience</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="3"></textarea>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg">New
+                journal entry</button>
+
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5>New entry</h5>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label>Where was this?</label>
+                                    <input class="form-control" type="text" placeholder="Location">
+                                    <label>Write about your experience</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                        <label class="custom-file-label" for="inputGroupFile02"
+                                            aria-describedby="inputGroupFileAddon02">Upload Photo</label>
                                     </div>
-                                    <div class="input-group mb-3">
-                                            <div class="custom-file">
-                                              <input type="file" class="custom-file-input" id="inputGroupFile02">
-                                              <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Photo</label>
-                                            </div>
-                                            <div class="input-group-append">
-                                              <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
-                                            </div>
-                                          </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success">Save changes</button>
-                            </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </div>
-                </div>
-
-            </div>
-            <a id="currency" class="smooth"></a>
-        </div>
-        
-        <br>
-
-        <!--Currency Converter Starts Here-->
-        <div id="currencyConverter" class="container">
-            
-            <div class="col-md-12">
-                <h2>Currency Converter</h2>
-                <h5>Don't let yourself get taken advantage of. Use this currency converter to make sure you're getting a
-                    good deal.</h5>
-                <h5>List of currency by country:</h5>
-                <ul>
-                    <li>United States- United States Dollar (USD)</li>
-                    <li>Brazil- Brazilian Real (BRL)</li>
-                    <li>Spain- Euro (EUR)</li>
-                    <li>Japan- Japanese Yen (JPY)</li>
-                </ul>
-                <div class="input-group">
-                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Currency</button>
-                        <div class="dropdown-menu">
-                            <h6 class="dropdown-item">USD</h6>
-                            <h6 class="dropdown-item">BRL</h6>
-                            <h6 class="dropdown-item">EUR</h6>
-                            <h6 class="dropdown-item">JPY</h6>
-                        </div>
-                    </div>
-                    <!-- button to calculate currency -->
-                    <button type="button" id="calculateCurrency" class="btn btn-success">Calculate</button>
-                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Currency</button>
-                        <div class="dropdown-menu">
-                            <h6 class="dropdown-item">USD</h6>
-                            <h6 class="dropdown-item">EUR</h6>
-                            <h6 class="dropdown-item">JPY</h6>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success">Save changes</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <a id="weather" class="smooth"></a>
+
         </div>
-        
-        <br>
+        <a id="currency" class="smooth"></a>
+    </div>
 
-        <!-- Local Weather Starts Here -->
-        <div id="localWeather" class="container">
-           
-            <div class="col-md-12">
-                <h2>Local Weather</h2>
-               
-                <div id="localForecast">
-                    <p>Local Weather forcast will go here</p>
-                    <!--Forecast goes here-->
+    <br>
 
+    <!--Currency Converter Starts Here-->
+    <div id="currencyConverter" class="container">
+
+        <div class="col-md-12">
+            <h2>Currency Converter</h2>
+            <h5>Don't let yourself get taken advantage of. Use this currency converter to make sure you're getting a
+                good deal.</h5>
+            <h5>List of currency by country:</h5>
+            <ul>
+                <li>United States- United States Dollar (USD)</li>
+                <li>Brazil- Brazilian Real (BRL)</li>
+                <li>Spain- Euro (EUR)</li>
+                <li>Japan- Japanese Yen (JPY)</li>
+            </ul>
+            <div class="input-group">
+                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Currency</button>
+                    <div id="curOne" class="dropdown-menu">
+                        <option class="dropdown-item">USD</option>
+                        <option class="dropdown-item">BRL</option>
+                        <option class="dropdown-item">EUR</option>
+                        <option class="dropdown-item">JPY</option>
+                    </div>
                 </div>
-
+                <!-- button to calculate currency -->
+                <button type="button" id="calculateCurrency" class="btn btn-success">Calculate</button>
+                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Currency</button>
+                    <div id="curTwo" class="dropdown-menu">
+                        <option class="dropdown-item">USD</option>
+                        <option class="dropdown-item">BRL</option>
+                        <option class="dropdown-item">EUR</option>
+                        <option class="dropdown-item">JPY</option>
+                    </div>
+                </div>
             </div>
-            <a id="map" class="smooth"></a>
         </div>
-        
-        <br>
+        <a id="weather" class="smooth"></a>
+    </div>
 
-        <!-- Map will go here -->
-        <div id="maps" class="container">
-            
-            <div class="col-md-12">
-                <h2>Map of Area</h2>
-                <h5>Find local activities to enjoy</h5>
+    <br>
+
+    <!-- Local Weather Starts Here -->
+    <div id="localWeather" class="container">
+
+        <div class="col-md-12">
+            <h2>Local Weather</h2>
+
+            <div id="localForecast" class="row">
+                <div class="col-8">
+                    <div class="row">
+                        Temperature
+                    </div>
+                    <div id="minMax" class="row">
+                        Min/Max
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        Forecast
+                    </div>
+                    <div id="chanceRain" class="row">
+                        ##%
+                    </div>
+                </div>
             </div>
-            <!-- smooth scroll link -->
-            <a id="about" class="smooth"></a>
-        </div>
-        
-        <br>
 
-       
-        <!-- About Us -->
-        <div id="aboutUs" class="container">
-            
-            <div class="col-md-12">
-                <h2>About us</h2>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="./assets/images/bluesprings.jpg" class="about-image" width="140px" height="140px" alt="Anthony">
-                        <h2 class="about-name">Anthony Shannon</h2>
-                        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
-                            vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo
-                            cursus magna.</p>
-                            <p class="about-links"><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-github-square"></i></a></p>
-                    </div><!-- /.col-md-3 -->
-                    <div class="col-md-3">
-                        <img src="https://via.placeholder.com/250" class="about-image" width="140px" height="140px" alt="Greg">
-                        <h2 class="about-name">Greg Baker</h2>
-                        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras
-                            mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                            condimentum nibh.</p>
-                            <p class="about-links"><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-github-square"></i></a></p>
-                    </div><!-- /.col-md-3 -->
-                    <div class="col-md-3">
-                        <img src="./assets/images/MDP_5740.jpg" class="about-image" width="140px" height="140px" alt="Melissa">
-                        <h2 class="about-name">Melissa Day</h2>
-                        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                            porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                            fermentum massa justo sit amet risus.</p>
-                            <p class="about-links"><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-github-square"></i></a></p>
-                    </div><!-- /.col-md-3 -->
+        </div>
+        <a id="map" class="smooth"></a>
+    </div>
+
+    <br>
+
+    <!-- Map will go here -->
+    <div id="maps" class="container">
+
+        <div class="col-md-12">
+            <h2>Map of Area</h2>
+            <h5>Find local activities to enjoy</h5>
+            <div id="mapid" class="container">
+            </div>
+        </div>
+        <!-- smooth scroll link -->
+        <a id="about" class="smooth"></a>
+    </div>
+
+    <br>
+
+
+    <!-- About Us -->
+    <div id="aboutUs" class="container">
+
+        <div class="col-md-12">
+            <h2>About us</h2>
+            <div class="row">
                 <div class="col-md-3">
-                    <img src="./assets/images/Me-professional-ish.jpg" class="about-image" width="140px" height="140px" alt="Pri">
+                    <img src="./assets/images/bluesprings.jpg" class="about-image" width="140px" height="140px"
+                        alt="Anthony">
+                    <h2 class="about-name">Anthony Shannon</h2>
+                    <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh
+                        ultricies
+                        vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent
+                        commodo
+                        cursus magna.</p>
+                    <p class="about-links"><a class="btn btn-secondary"
+                            href="https://www.linkedin.com/in/anthony-shannon-b1a0b1aa/" target="_blank"
+                            role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary"
+                            href="https://github.com/ashannon1990" target="_blank" role="button"><i
+                                class="fab fa-github-square"></i></a></p>
+                </div><!-- /.col-md-3 -->
+                <div class="col-md-3">
+                    <img src="https://via.placeholder.com/250" class="about-image" width="140px" height="140px"
+                        alt="Greg">
+                    <h2 class="about-name">Greg Baker</h2>
+                    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                        Cras
+                        mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor
+                        mauris
+                        condimentum nibh.</p>
+                    <p class="about-links"><a class="btn btn-secondary"
+                            href="https://www.linkedin.com/in/greg-baker-48ab9717b/" target="_blank" role="button"><i
+                                class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary"
+                            href="https://github.com/BakedALake" target="_blank" role="button"><i
+                                class="fab fa-github-square"></i></a></p>
+                </div><!-- /.col-md-3 -->
+                <div class="col-md-3">
+                    <img src="./assets/images/MDP_5740.jpg" class="about-image" width="140px" height="140px"
+                        alt="Melissa">
+                    <h2 class="about-name">Melissa Day</h2>
+                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id
+                        ligula
+                        porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+                        nibh, ut
+                        fermentum massa justo sit amet risus.</p>
+                    <p class="about-links"><a class="btn btn-secondary"
+                            href="https://www.linkedin.com/in/melissa-day-646a05170" target="_blank" role="button"><i
+                                class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary"
+                            href="https://github.com/Mday1313" target="_blank" role="button"><i
+                                class="fab fa-github-square"></i></a></p>
+                </div><!-- /.col-md-3 -->
+                <div class="col-md-3">
+                    <img src="./assets/images/Me-professional-ish.jpg" class="about-image" width="140px" height="140px"
+                        alt="Pri">
                     <h2 class="about-name">Pri Heller</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta
-                        felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
+                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id
+                        ligula porta
+                        felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+                        ut fermentum
                         massa justo sit amet risus.</p>
-                        <p class="about-links"><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-github-square"></i></a></p>
+                    <p class="about-links"><a class="btn btn-secondary"
+                            href="https://www.linkedin.com/in/priscila-heller-80a13621/" target="_blank"
+                            role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary"
+                            href="https://github.com/talktopri" target="_blank" role="button"><i
+                                class="fab fa-github-square"></i></a></p>
                 </div><!-- /.col-md-3 -->
             </div><!-- /.row -->
-            
-            </div>
-            </div>
+
+        </div>
+    </div>
 
 
 
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
 
-        <script
-            src="https://github.com/kswedberg/jquery-smooth-scroll/blob/master/jquery.smooth-scroll.min.js"></script>
-        <script>
-            $('.smooth').on('click', function () {
-                $.smoothScroll({
-                    scrollElement: $('body'),
-                    scrollTarget: '#' + this.id
-                });
-
-                return false;
+    <script src="https://github.com/kswedberg/jquery-smooth-scroll/blob/master/jquery.smooth-scroll.min.js"></script>
+    <script>
+        $('.smooth').on('click', function () {
+            $.smoothScroll({
+                scrollElement: $('body'),
+                scrollTarget: '#' + this.id
             });
-        </script>
-        <script src="./assets/javascript/app.js"></script>
+            return false;
+        });
+    </script>
+    <script src="./assets/javascript/app.js"></script>
 </body>
 
 </html>
