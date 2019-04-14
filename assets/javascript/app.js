@@ -8,6 +8,11 @@ $('.menu-link').click(function(){
 $('.navbar-toggler').click(function(){ 
     $('.collapse').show();
 });
+
+$("#modalSubmit").click(function(){ 
+    console.log("clicky");     
+
+});
     
 // Firebase authentication starts here
   var config = {
@@ -107,10 +112,7 @@ $('.navbar-toggler').click(function(){
         // document.getElementById('modalSubmit').addEventListener('click', toggleSignIn);
 });
 
-$("#modalSubmit").on("click", toggleSignIn, function(){ 
-    console.log("clicky");     
-
-});             
+             
 window.onload = function() {
   initApp();
 }}
