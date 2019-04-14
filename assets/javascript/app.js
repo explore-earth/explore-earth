@@ -133,3 +133,26 @@ $(document).on("click", "#searchButton", function(){
     }).addTo(mymap);
 })
 })
+$(document).on("click", "#dropdownSearchButton", function(){
+  event.preventDefault();
+  var citySearch = $("#dropdownCitySearch").val();
+  console.log(citySearch);
+  var accuweatherAPIKey = "apikey=lue324tsUBanyvWs01vc8PzYvcl2CqAQ";
+  var locationQueryURL = "https://dataservice.accuweather.com/locations/v1/cities/search?q=" + citySearch + "&" + accuweatherAPIKey;
+  $.ajax({
+    url: locationQueryURL,
+    method: "GET"
+  }) .then(function(response) {
+    console.log(response)
+    var latitude = response[0].GeoPosition.Latitude;
+    var longitude = response[0].GeoPosition.Longitude;
+    
+    var mymap = L.map('mapid').setView([latitude, longitude], 13);
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox.streets',
+      accessToken: 'pk.eyJ1IjoiYXNoYW5ub24xOTkwIiwiYSI6ImNqdWg5d3E0bzB1bmE0NHMwMHB6eHphaXoifQ.gxpdB89rzE_fN7II-PhAiA'
+    }).addTo(mymap);
+})
+})
