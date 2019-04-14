@@ -9,6 +9,8 @@ $('.navbar-toggler').click(function () {
   $('.collapse').show();
 });
 
+// ---------------- AUTHENTICATION STUFF STARTS HERE ----------------- // 
+
 $("#menu-login").click(toggleSignIn, function () {
   console.log("clicky");
 });
@@ -114,14 +116,14 @@ function initApp() {
     //         // [START_EXCLUDE]
     document.getElementById('menu-login').addEventListener('click', toggleSignIn, false);
   }
-  
-
-  //  
-  //          
 
 
   window.onload = function () {
     console.log("running");
     initApp();
   }
+
+  // ------------ AUTHENTICATION STUFF ENDS HERE -------- //
+
+  
 
