@@ -8,10 +8,7 @@ $('.menu-link').click(function(){
 $('.navbar-toggler').click(function(){ 
     $('.collapse').show();
 });
-
-$("#modalSubmit").click(function(){ 
-            console.log("clicky");
-});    
+    
 // Firebase authentication starts here
   var config = {
     apiKey: "AIzaSyD1z4ChJJE8vLLLZ7MJYYoltlNrlTbzWjM",
@@ -107,10 +104,13 @@ $("#modalSubmit").click(function(){
           // [END_EXCLUDE]
         }
 //         // [START_EXCLUDE]
-        document.getElementById('modalSubmit').addEventListener('click', toggleSignIn);
-        console.log("test");
-    });
-        
-    window.onload = function() {
-      initApp();
-    }}
+        // document.getElementById('modalSubmit').addEventListener('click', toggleSignIn);
+$("#modalSubmit").click(toggleSignIn, function(){ 
+    console.log("clicky");     
+});
+              
+window.onload = function() {
+  initApp();
+}
+
+})}
