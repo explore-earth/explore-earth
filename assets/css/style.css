@@ -129,4 +129,5 @@ font-family: 'Great Vibes', cursive; */
   /* map starts here */
   #mapid { 
       height: 50vh; 
+      z-index: 0;
     }

@@ -112,10 +112,11 @@ function initApp() {
 
 $(document).on("click", "#searchButton", function(){
   event.preventDefault();
-  var citySearch = $("#citySearch").val();
+  var citySearch = $("#citySearch").val().trim();
   console.log(citySearch);
   var accuweatherAPIKey = "apikey=lue324tsUBanyvWs01vc8PzYvcl2CqAQ";
   var locationQueryURL = "https://dataservice.accuweather.com/locations/v1/cities/search?q=" + citySearch + "&" + accuweatherAPIKey;
+  console.log(locationQueryURL)
   $.ajax({
     url: locationQueryURL,
     method: "GET"
