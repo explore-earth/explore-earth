@@ -8,6 +8,9 @@ $('.menu-link').click(function(){
 $('.navbar-toggler').click(function(){ 
     $('.collapse').show();
 });
+
+$("#modalSubmit").addEventListener('click'){
+            console.log("clicky");
 // Firebase authentication starts here
   var config = {
     apiKey: "AIzaSyD1z4ChJJE8vLLLZ7MJYYoltlNrlTbzWjM",
@@ -104,6 +107,7 @@ $('.navbar-toggler').click(function(){
 //         // [START_EXCLUDE]
         document.getElementById('menu-login').addEventListener('click', toggleSignIn);
     });
+        
     window.onload = function() {
       initApp();
     }}
