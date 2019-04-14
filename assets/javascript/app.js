@@ -11,6 +11,7 @@ $('.navbar-toggler').click(function(){
 
 $("#modalSubmit").click(function(){ 
             console.log("clicky");
+});    
 // Firebase authentication starts here
   var config = {
     apiKey: "AIzaSyD1z4ChJJE8vLLLZ7MJYYoltlNrlTbzWjM",
