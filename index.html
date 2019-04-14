@@ -10,6 +10,12 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One|Tangerine" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -103,9 +109,9 @@
             </button>
             <form class="form-inline my-2 my-lg-0" id="search-bar-outer">
                 <img id="user-avatar" src="https://via.placeholder.com/40">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search for new cities"
+                <input id="citySearch" class="form-control mr-sm-2" type="search" placeholder="Search for new cities"
                     aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </nav>
 </div>
@@ -357,6 +363,7 @@
 
             </div>
             <a id="map" class="smooth"></a>
+           
         </div>
         
         <br>
@@ -367,6 +374,8 @@
             <div class="col-md-12">
                 <h2>Map of Area</h2>
                 <h5>Find local activities to enjoy</h5>
+
+                <div id="mapid"></div>
             </div>
             <!-- smooth scroll link -->
             <a id="about" class="smooth"></a>

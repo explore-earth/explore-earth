@@ -126,3 +126,7 @@ font-family: 'Great Vibes', cursive; */
         font-size: 1rem;
     }
   }
+  /* map starts here */
+  #mapid { 
+      height: 50vh; 
+    }
