@@ -17,6 +17,14 @@ html {
     bottom: 10px;
    
 }
+
+.carousel-caption {
+    background: #01233f;
+    margin: auto;
+    width: 300px;
+    opacity: 0.75;
+    border-radius: 10%;
+}
 .modal-content {
     background: #01233f;
     color: #e6d5be;
@@ -42,6 +50,11 @@ h4, .country-head {
     border-radius: 50%;
     margin-left: 20%;
     
+}
+
+#mapid {
+    z-index: 0;
+    height: 50vh;
 }
 
 .about-name {
@@ -84,6 +97,10 @@ h2 {
 }
 #myJournal {
     margin: 50px;
+}
+
+.journalImage {
+    width: 250px;
 }
 .container {
     min-height: 550px;

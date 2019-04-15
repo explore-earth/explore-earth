@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One|Tangerine" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="shortcut icon" type="image/png" href="./assets/images/logo2.png"/>
@@ -29,21 +36,12 @@
                         <div class="form-group">
                             <label>Enter the city you would like to visit to get local information.</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-light dropdown-toggle" type="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recent
-                                        Searches</button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <div role="separator" class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Separated link</a>
-                                    </div>
-                                </div>
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search for new cities"
+                                aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                             </div>
                         </div>
-                        <button type="submit" id="modalSubmit" class="btn btn-success">Log In</button>
-                        <button type="submit" id="modalSubmit" class="btn btn-light">Continue as guest</button>
+                       
                     </form>
                 </div>
             </div>
@@ -60,7 +58,7 @@
                         <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
                             title="Journal about your experiences to remember">My Journal</h5>
                     </a>
-                    <a class="menu-link" href="#">
+                    <a class="menu-link" id="menu-login" href="#">
                         <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
                             title="Save your favorite cities and activiities here">Log In</h5>
                     </a>
@@ -86,9 +84,9 @@
                         title="Read about who we are">About Us</h5>
                 </a>
                 <form class="form-inline my-2 my-lg-0" id="search-bar-inner">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search for new cities"
+                    <input id="dropdownCitySearch" class="form-control mr-sm-2" type="search" placeholder="Search for new cities"
                         aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button id="dropdownSearchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
         </div>
@@ -103,10 +101,11 @@
                 </div>
             </button>
             <form class="form-inline my-2 my-lg-0" id="search-bar-outer">
-                <img id="user-avatar" src="https://via.placeholder.com/40">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search for new cities"
+                <div id="user-avatar"></div>
+                <button type="button" id="modalSubmit" class="btn btn-success">Log In</button>
+                <input id="citySearch" class="form-control mr-sm-2" type="search" placeholder="Search for new cities"
                     aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </nav>
 </div>
@@ -138,7 +137,7 @@
                         <img src="https://source.unsplash.com/1600x900/?beach" class="d-block w-100" alt="Placeholder">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Remember your adventures</h5>
-                            <p>Document your trips with out journal and favorites feature for members</p>
+                            <p>Document your trips with the journal and favorites feature for members</p>
                         </div>
                     </div>
                 </div>
@@ -167,8 +166,8 @@
     <div class="row" id="info-container">
              <div class="col-md-6">
                 <div id="customsGreetings">
-                    <h4>Greatings</h4>
-                    <p>In this section we will talk about how to great others</p>
+                    <h4>Greetings</h4>
+                    <p>In this section we will talk about how to greet others</p>
                 </div>
                 <div id="customsFood">
                     <h4>Food</h4>
@@ -180,13 +179,13 @@
                 </dib>
                 <div id="customsTaboos">
                     <h4>Cultural Taboos</h4>
-                    <p>In this section we will talk about what NOT to to.</p>
+                    <p>In this section we will talk about what NOT to do.</p>
                 </div>
             </div>
             <div class="col-md-6">
                 <div id="customsGreetings">
-                    <h4>Greatings</h4>
-                    <p>In this section we will talk about how to great others</p>
+                    <h4>Greetings</h4>
+                    <p>In this section we will talk about how to greet others</p>
                 </div>
                 <div id="customsFood">
                     <h4>Food</h4>
@@ -198,7 +197,7 @@
                 </dib>
                 <div id="customsTaboos">
                     <h4>Cultural Taboos</h4>
-                    <p>In this section we will talk about what NOT to to.</p>
+                    <p>In this section we will talk about what NOT to do.</p>
                 </div>
             </div>
         </div>
@@ -351,7 +350,7 @@
                 <h2>Local Weather</h2>
                
                 <div id="localForecast">
-                    <p>Local Weather forcast will go here</p>
+                    <p>Local Weather forecast will go here</p>
                     <!--Forecast goes here-->
 
                 </div>
@@ -368,6 +367,7 @@
             <div class="col-md-12">
                 <h2>Map of Area</h2>
                 <h5>Find local activities to enjoy</h5>
+                <div id="mapid"></div>
             </div>
             <!-- smooth scroll link -->
             <a id="about" class="smooth"></a>
@@ -375,7 +375,7 @@
         
         <br>
 
-       
+   
         <!-- About Us -->
         <div id="aboutUs" class="container">
             
@@ -388,7 +388,7 @@
                         <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
                             vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo
                             cursus magna.</p>
-                            <p class="about-links"><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-github-square"></i></a></p>
+                            <p class="about-links"><a class="btn btn-secondary" href="https://www.linkedin.com/in/anthony-shannon-b1a0b1aa/" target="_blank" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="https://github.com/ashannon1990" target="_blank" role="button"><i class="fab fa-github-square"></i></a></p>
                     </div><!-- /.col-md-3 -->
                     <div class="col-md-3">
                         <img src="https://via.placeholder.com/250" class="about-image" width="140px" height="140px" alt="Greg">
@@ -396,7 +396,7 @@
                         <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras
                             mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris
                             condimentum nibh.</p>
-                            <p class="about-links"><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-github-square"></i></a></p>
+                            <p class="about-links"><a class="btn btn-secondary" href="https://www.linkedin.com/in/greg-baker-48ab9717b/" target="_blank" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="https://github.com/BakedALake" target="_blank" role="button"><i class="fab fa-github-square"></i></a></p>
                     </div><!-- /.col-md-3 -->
                     <div class="col-md-3">
                         <img src="./assets/images/MDP_5740.jpg" class="about-image" width="140px" height="140px" alt="Melissa">
@@ -404,7 +404,7 @@
                         <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
                             porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
                             fermentum massa justo sit amet risus.</p>
-                            <p class="about-links"><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-github-square"></i></a></p>
+                            <p class="about-links"><a class="btn btn-secondary" href="https://www.linkedin.com/in/melissa-day-646a05170" target="_blank" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="https://github.com/Mday1313" target="_blank" role="button"><i class="fab fa-github-square"></i></a></p>
                     </div><!-- /.col-md-3 -->
                 <div class="col-md-3">
                     <img src="./assets/images/Me-professional-ish.jpg" class="about-image" width="140px" height="140px" alt="Pri">
@@ -412,13 +412,12 @@
                     <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta
                         felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
                         massa justo sit amet risus.</p>
-                        <p class="about-links"><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-github-square"></i></a></p>
+                        <p class="about-links"><a class="btn btn-secondary" href="https://www.linkedin.com/in/priscila-heller-80a13621/" target="_blank" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="https://github.com/talktopri" target="_blank" role="button"><i class="fab fa-github-square"></i></a></p>
                 </div><!-- /.col-md-3 -->
             </div><!-- /.row -->
             
             </div>
             </div>
-
 
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -429,7 +428,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
 
         <script
             src="https://github.com/kswedberg/jquery-smooth-scroll/blob/master/jquery.smooth-scroll.min.js"></script>
@@ -443,7 +442,7 @@
                 return false;
             });
         </script>
-        <script src="./assets/javascript/app.js"></script>
+        <script src="./assets/javascript/app2.js"></script>
 </body>
 
 </html>
