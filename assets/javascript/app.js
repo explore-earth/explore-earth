@@ -27,14 +27,19 @@ firebase.auth().onAuthStateChanged(function(user){
 console.log(user);
 if(user){
       console.log('We have a user');
-      var displayName = user.displayName;
+      var photoURL = $("<img>");
+      photoURL.attr("src", user.photoURL);
+      photoURL.css({"width":"7%","height":"7%","border-radius":"50%"});
+      $("#user-avatar").append(photoURL);
+      // var displayName = user.displayName;
+      // $("#user-avatar").append(displayName); //this does not work yet
       document.getElementById("customs").style.display = "block";
       document.getElementById("journal").style.display = "block";
       document.getElementById("menu-journal").style.display = "block";
       document.getElementById("menu-login").style.display = "none";
       document.getElementById("menu-logout").style.display = "block";
 
-      $("#user-avatar").append(displayName); //this does not work yet
+      
   
 }else{
   console.log("We don't have a user");
@@ -44,6 +49,7 @@ if(user){
       document.getElementById("menu-journal").style.display = "none";
       document.getElementById("menu-logout").style.display = "none";
       document.getElementById("menu-login").style.display = "block";
+      photoURL.style.display = "none";
 }
 });
 
