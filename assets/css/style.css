@@ -115,7 +115,7 @@ font-family: 'Great Vibes', cursive; */
         position: absolute;
         top: 5px;
     }
-#search-bar-outer {
+#citySearch, #searchButton {
     display: none;
 }
 #search-bar-inner {
