@@ -29,6 +29,7 @@ if(user){
       console.log('We have a user');
       var photoURL = $("<img>");
       photoURL.attr("src", user.photoURL);
+      photoURL.attr("class","google-avatar");
       photoURL.css({"width":"7%","height":"7%","border-radius":"50%"});
       $("#user-avatar").append(photoURL);
       // var displayName = user.displayName;
