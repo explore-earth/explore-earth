@@ -29,11 +29,10 @@ html {
 .sub-title {
     color: #53853c;
 }
-#user-avatar {
+.google-avatar {
    
-    position: absolute;
-    right: -50px;
-}
+    float: right;
+ }
 #search-bar-inner {
     display: none;
 }
