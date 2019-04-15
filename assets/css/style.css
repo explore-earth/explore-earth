@@ -30,9 +30,9 @@ html {
     color: #53853c;
 }
 #user-avatar {
-    margin-right: 5px;
+   
     position: absolute;
-    right: -40px;
+    right: -50px;
 }
 #search-bar-inner {
     display: none;
