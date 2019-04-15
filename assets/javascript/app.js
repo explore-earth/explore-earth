@@ -49,7 +49,7 @@ if(user){
       document.getElementById("menu-journal").style.display = "none";
       document.getElementById("menu-logout").style.display = "none";
       document.getElementById("menu-login").style.display = "block";
-      photoURL.style.display = "none";
+      document.getElementById("user-avatar").style.display = "none";
 }
 });
 
