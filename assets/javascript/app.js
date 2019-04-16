@@ -88,7 +88,7 @@ $("#menu-logout").on('click',function(){
   // ------------ AUTHENTICATION STUFF ENDS HERE -------- //
 
   var weatherURL = "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=";
-  var weatherAPI = "Pw6sEtuGM1QQngSJFGOR9LFJLUtgnFhs";
+  var weatherAPI = "X9amRPkYQjYDGGTYwGOq0VnljW2GJORA";
   var fixerURL;
   var fixerAPI;
   var unsplashURL;
@@ -160,7 +160,7 @@ $("#menu-logout").on('click',function(){
   
   
           var mymap = L.map('mapid').setView([latitude, longitude], 13);
-          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+          L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=XdhgrAfqYi4JNSz69hFd', {
               attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
               maxZoom: 18,
               id: 'mapbox.streets',
