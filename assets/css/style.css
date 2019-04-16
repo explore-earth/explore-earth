@@ -141,3 +141,19 @@ font-family: 'Great Vibes', cursive; */
         font-size: 1rem;
     }
   }
+
+  #currencyForm{
+      width: 100%;
+      
+  }
+
+#inputCurrency{
+    float: left;
+    width: 20%;
+    margin: 5px;
+}
+
+#enteredCurrency{
+    display: inline;
+    margin: 5px;
+}
