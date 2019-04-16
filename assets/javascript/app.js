@@ -54,7 +54,7 @@ if (user) {
 }
 });
 
-$("#menu-login").on('click', function() {
+$("#menu-login").on('click', function () {
 console.log('this button works');
 var provider = new firebase.auth.GoogleAuthProvider();
 provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
@@ -66,10 +66,10 @@ firebase.auth().signInWithPopup(provider)
 })
 });
 
-$("#menu-logout").on('click', function() {
+$("#menu-logout").on('click', function () {
 	var provider = new firebase.auth.GoogleAuthProvider();
 	console.log('logout works');
-	firebase.auth().signOut().then(function() {
+	firebase.auth().signOut().then(function () {
 		document.getElementById("customs").style.display = "none";
     document.getElementById("journal").style.display = "none";
     document.getElementById("menu-journal").style.display = "none";
