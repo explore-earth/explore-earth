@@ -5,6 +5,8 @@ html {
   body {
     font-family: 'Poiret One', cursive;
     font-size: 20px;
+    color: black;
+    font-weight: 2em;
    background: #01233f;
   }
 .title {
@@ -30,9 +32,7 @@ html {
     color: #53853c;
 }
 
-
 .google-avatar {
-   
    float: right;
 }
 
@@ -48,7 +48,6 @@ h4, .country-head {
 .about-image {
     border-radius: 50%;
     margin-left: 20%;
-    
 }
 #localForecast {
     padding-top: 50px;
@@ -58,6 +57,15 @@ min-height: 510px;
 }
 #forecast-display {
     font-size: 20px;
+    margin-top: 20px;
+}
+.day {
+    background: #01233f;
+    color: #f4f4f4;
+    margin: 10px;
+    margin-right: 100PX;
+    font-size: 2rem;
+    text-align: center;
 }
 #mapid {
     z-index: 0;
@@ -145,7 +153,22 @@ font-family: 'Great Vibes', cursive; */
     margin-right: 35%;
     
 }
-  }
+  
+#currencyForm{
+    width: 100%;
+    
+}
+
+#inputCurrency{
+  float: left;
+  width: 20%;
+  margin: 5px;
+}
+
+#enteredCurrency{
+  display: inline;
+  margin: 5px;
+}
   
   @media screen and (max-width: 500px) {
     
