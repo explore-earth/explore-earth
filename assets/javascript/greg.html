@@ -5,20 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Explore Earth</title>
+    <title>Engaged Explorer</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One|Tangerine" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-    crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-   crossorigin=""></script>
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="shortcut icon" type="image/png" href="./assets/images/logo2.png"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
@@ -37,12 +29,21 @@
                         <div class="form-group">
                             <label>Enter the city you would like to visit to get local information.</label>
                             <div class="input-group">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search for new cities"
-                                aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-light dropdown-toggle" type="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recent
+                                        Searches</button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <div role="separator" class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Separated link</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                       
+                        <button type="submit" id="modalSubmit" class="btn btn-success">Log In</button>
+                        <button type="submit" id="modalSubmit" class="btn btn-light">Continue as guest</button>
                     </form>
                 </div>
             </div>
@@ -51,43 +52,43 @@
     <!-- Nav -->
 
     <div class="pos-f-t">
-        <div class="collapse nav-bar nav-bar-collapse" id="navbarToggleExternalContent">
+        <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-dark p-4">
                 <!--dropdown menu content-->
                 <div id="memberFeatures">
-                    <a class="menu-link" id="menu-journal" href="#myJournal">
+                    <a href="#myJournal">
                         <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
                             title="Journal about your experiences to remember">My Journal</h5>
                     </a>
-                    <!-- <a class="menu-link" id="menu-login" href="#">
+                    <a href="#">
                         <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
-                            title="Save your favorite cities and activiities here">Log In</h5>
-                    </a> -->
+                            title="Save your favorite cities and activiities here">Log In or Create an Account</h5>
+                    </a>
                 </div>
-                <a class="menu-link" href="#culture">
+                <a href="#culture">
                     <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
                         title="Get information on the local customs and culture">Cultural Information</h5>
                 </a>
-                <a class="menu-link" href="#map">
+                <a href="#map">
                     <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
                         title="Find local sites and activities">Maps</h5>
                 </a>
-                <a class="menu-link" href="#currency">
+                <a href="#currency">
                     <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
                         title="Make sure you get a good deal with a currency converter">Currency</h5>
                 </a>
-                <a class="menu-link" href="#weather">
+                <a href="#weather">
                     <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
                         title="Check the local weather before you head out">Weather</h5>
                 </a>
-                <a class="menu-link" href="#about">
+                <a href="#about">
                     <h5 class="text-white h4" data-toggle="tooltip" data-placement="right"
                         title="Read about who we are">About Us</h5>
                 </a>
                 <form class="form-inline my-2 my-lg-0" id="search-bar-inner">
-                    <input id="dropdownCitySearch" class="form-control mr-sm-2" type="search" placeholder="Search for new cities"
+                    <input id="minicitySearch" class="form-control mr-sm-2" type="search" placeholder="Search for new cities"
                         aria-label="Search">
-                    <button id="dropdownSearchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button id="minisearchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
         </div>
@@ -98,13 +99,10 @@
                 <span class="navbar-toggler-icon"></span>
                 
                 <div class="test-div">
-                    <img src="./assets/images/logo2.png" width="50px" >Explore Earth
+                    <img src="./assets/images/logo2.png" width="50px" >Engaged Explorer
                 </div>
             </button>
             <form class="form-inline my-2 my-lg-0" id="search-bar-outer">
-                <div id="user-avatar" height="12px" width="12px"></div>
-                <button type="button" id="menu-login" class="btn btn-success">Log In</button>
-                <button type="button" id="menu-logout" class="btn btn-success">Log Out</button>
                 <input id="citySearch" class="form-control mr-sm-2" type="search" placeholder="Search for new cities"
                     aria-label="Search">
                 <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -135,11 +133,11 @@
                             <p>Learn local norms and customs to help you interact with the locals</p>
                         </div>
                     </div>
-                    <div id="homeImgThree" class="carousel-item">
-                        <img src="https://source.unsplash.com/1600x900/?beach" class="d-block w-100" alt="Placeholder">
+                    <div class="carousel-item">
+                        <img id="homeImgThree" src="https://source.unsplash.com/1600x900/?beach" class="d-block w-100" alt="Placeholder">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Remember your adventures</h5>
-                            <p>Document your trips with the journal and favorites feature for members</p>
+                            <p>Document your trips with out journal and favorites feature for members</p>
                         </div>
                     </div>
                 </div>
@@ -162,14 +160,14 @@
         
     
         <h2>Local Customs</h2>
-        <h4>Learn the local customs before you go</h4>
+        <h4>Choose from this list of popular destinations to learn the local customs before you go</h4>
        
     
     <div class="row" id="info-container">
              <div class="col-md-6">
                 <div id="customsGreetings">
-                    <h4>Greetings</h4>
-                    <p>In this section we will talk about how to greet others</p>
+                    <h4>Greatings</h4>
+                    <p>In this section we will talk about how to great others</p>
                 </div>
                 <div id="customsFood">
                     <h4>Food</h4>
@@ -181,13 +179,13 @@
                 </dib>
                 <div id="customsTaboos">
                     <h4>Cultural Taboos</h4>
-                    <p>In this section we will talk about what NOT to do.</p>
+                    <p>In this section we will talk about what NOT to to.</p>
                 </div>
             </div>
             <div class="col-md-6">
                 <div id="customsGreetings">
-                    <h4>Greetings</h4>
-                    <p>In this section we will talk about how to greet others</p>
+                    <h4>Greatings</h4>
+                    <p>In this section we will talk about how to great others</p>
                 </div>
                 <div id="customsFood">
                     <h4>Food</h4>
@@ -199,12 +197,10 @@
                 </dib>
                 <div id="customsTaboos">
                     <h4>Cultural Taboos</h4>
-                    <p>In this section we will talk about what NOT to do.</p>
+                    <p>In this section we will talk about what NOT to to.</p>
                 </div>
             </div>
         </div>
-
-        
         <a id="myJournal" class="smooth"></a>
     </div>
     
@@ -302,8 +298,8 @@
         
         <br>
 
-         <!--Currency Converter Starts Here-->
-         <div id="currencyConverter" class="container">
+        <!--Currency Converter Starts Here-->
+        <div id="currencyConverter" class="container">
             
             <div class="col-md-12">
                 <h2>Currency Converter</h2>
@@ -345,46 +341,20 @@
             <a id="weather" class="smooth"></a>
         </div>
         
-        
         <br>
 
         <!-- Local Weather Starts Here -->
         <div id="localWeather" class="container">
            
-            <div id="localForecast" class="col-md-12">
-                
-                <h2>Local 3 Day Weather</h2>
-                <p id="weather-city"></p>
-                
-            
-                <div>
+            <div class="col-md-12">
+                <h2>Local Weather</h2>
+               
+                <div id="localForecast">
+                    <p>Local Weather forcast will go here</p>
                     <!--Forecast goes here-->
-                    <div id="forecast-display"  class="row">
-                        <div class="col-2"></div>
-                <div class="col-3">
 
-                        <p id="date-0">Today</p>
-                        <div id="icon0"></div>
-                    <div id="minMax0"></div>
-                    <div id="chanceRain0"></div>
                 </div>
-                <div class="col-3">
-                        <p id="date-1">Tomorrow</p>
-                        <div id="icon1">
-                           
-                        </div>
-                        <div id="minMax1"></div>
-                        <div id="chanceRain1"></div>
-                </div>
-                <div class="col-3">
-                        <p id="date-2"></p>
-                        <div id="icon2"></div>
-                        <div id="minMax2"></div>
-                        <div id="chanceRain2"></div>
-                    </div>
-                </div>
-                <div class="col-1"></div>
-            </div>
+
             </div>
             <a id="map" class="smooth"></a>
         </div>
@@ -397,7 +367,6 @@
             <div class="col-md-12">
                 <h2>Map of Area</h2>
                 <h5>Find local activities to enjoy</h5>
-                <div id="mapid"></div>
             </div>
             <!-- smooth scroll link -->
             <a id="about" class="smooth"></a>
@@ -405,7 +374,7 @@
         
         <br>
 
-   
+       
         <!-- About Us -->
         <div id="aboutUs" class="container">
             
@@ -418,7 +387,7 @@
                         <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
                             vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo
                             cursus magna.</p>
-                            <p class="about-links"><a class="btn btn-secondary" href="https://www.linkedin.com/in/anthony-shannon-b1a0b1aa/" target="_blank" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="https://github.com/ashannon1990" target="_blank" role="button"><i class="fab fa-github-square"></i></a></p>
+                            <p class="about-links"><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-github-square"></i></a></p>
                     </div><!-- /.col-md-3 -->
                     <div class="col-md-3">
                         <img src="https://via.placeholder.com/250" class="about-image" width="140px" height="140px" alt="Greg">
@@ -426,7 +395,7 @@
                         <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras
                             mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris
                             condimentum nibh.</p>
-                            <p class="about-links"><a class="btn btn-secondary" href="https://www.linkedin.com/in/greg-baker-48ab9717b/" target="_blank" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="https://github.com/BakedALake" target="_blank" role="button"><i class="fab fa-github-square"></i></a></p>
+                            <p class="about-links"><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-github-square"></i></a></p>
                     </div><!-- /.col-md-3 -->
                     <div class="col-md-3">
                         <img src="./assets/images/MDP_5740.jpg" class="about-image" width="140px" height="140px" alt="Melissa">
@@ -434,7 +403,7 @@
                         <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
                             porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
                             fermentum massa justo sit amet risus.</p>
-                            <p class="about-links"><a class="btn btn-secondary" href="https://www.linkedin.com/in/melissa-day-646a05170" target="_blank" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="https://github.com/Mday1313" target="_blank" role="button"><i class="fab fa-github-square"></i></a></p>
+                            <p class="about-links"><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-github-square"></i></a></p>
                     </div><!-- /.col-md-3 -->
                 <div class="col-md-3">
                     <img src="./assets/images/Me-professional-ish.jpg" class="about-image" width="140px" height="140px" alt="Pri">
@@ -442,12 +411,13 @@
                     <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta
                         felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
                         massa justo sit amet risus.</p>
-                        <p class="about-links"><a class="btn btn-secondary" href="https://www.linkedin.com/in/priscila-heller-80a13621/" target="_blank" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="https://github.com/talktopri" target="_blank" role="button"><i class="fab fa-github-square"></i></a></p>
+                        <p class="about-links"><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="#" role="button"><i class="fab fa-github-square"></i></a></p>
                 </div><!-- /.col-md-3 -->
             </div><!-- /.row -->
             
             </div>
             </div>
+
 
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -458,7 +428,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
 
         <script
             src="https://github.com/kswedberg/jquery-smooth-scroll/blob/master/jquery.smooth-scroll.min.js"></script>
