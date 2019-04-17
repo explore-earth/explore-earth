@@ -42,6 +42,22 @@ html {
 h4, .country-head {
     font-weight: bold;
 }
+#customs, #currencyConverter {
+    padding: 30px;
+}
+#currencyConverter, #currencyForm {
+    text-align: center;
+    margin: auto;
+}
+#inputCurrency {
+    margin-top: 20px;
+}
+ .row #currencyCalc #currencySwitch {
+    text-align: center;
+    margin: auto;
+
+    margin-top: 30px;
+}
 #info-container {
     margin-top: 20px;
 }
