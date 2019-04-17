@@ -55,8 +55,7 @@ h4, .country-head {
  .row #currencyCalc #currencySwitch {
     text-align: center;
     margin: auto;
-
-    margin-top: 30px;
+    padding: 30px;
 }
 #info-container {
     margin-top: 20px;
@@ -146,7 +145,7 @@ h2 {
     .test-div {
          font-size: 2rem;
         position: absolute;
-        top: 5px; 
+        top: 20px; 
     }
     #localForecast {
         text-align: center;
