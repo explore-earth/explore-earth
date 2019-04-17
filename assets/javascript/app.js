@@ -34,7 +34,6 @@ if (user) {
       $("#user-avatar").append(photoURL);
       // var displayName = user.displayName;
       // $("#user-avatar").append(displayName); //this does not work yet
-      document.getElementById("customs").style.display = "block";
       document.getElementById("journal").style.display = "block";
       document.getElementById("menu-journal").style.display = "block";
       document.getElementById("menu-login").style.display = "none";
