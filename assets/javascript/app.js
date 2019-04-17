@@ -87,7 +87,7 @@ $("#menu-logout").on('click', function () {
 
   // ------------ AUTHENTICATION STUFF ENDS HERE -------- //
 
-  var weatherURL = "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=";
+  var weatherURL = "https://dataservice.accuweather.com/locations/v1/cities/search?apikey=";
   // var weatherAPI = "Pw6sEtuGM1QQngSJFGOR9LFJLUtgnFhs";
   var weatherAPI = "X9amRPkYQjYDGGTYwGOq0VnljW2GJORA";
   var currencyURL = "https://free.currconv.com";
@@ -222,7 +222,7 @@ $("#menu-logout").on('click', function () {
           }).addTo(mymap);
   
           $.ajax({
-              url: "http://dataservice.accuweather.com/forecasts/v1/daily/5day/" + locationKey + "?apikey=X9amRPkYQjYDGGTYwGOq0VnljW2GJORA",
+              url: "https://dataservice.accuweather.com/forecasts/v1/daily/5day/" + locationKey + "?apikey=X9amRPkYQjYDGGTYwGOq0VnljW2GJORA",
               method: "GET"
           }).then(function (response) {
               console.log(response);
