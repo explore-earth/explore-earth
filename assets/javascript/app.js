@@ -1,3 +1,28 @@
+// ========================================= Varriables =========================================
+
+var weatherIndex = 0;
+var weatherURL = "https://dataservice.accuweather.com/locations/v1/cities/search?apikey=";
+var weatherAPI = ["Pw6sEtuGM1QQngSJFGOR9LFJLUtgnFhs", "X9amRPkYQjYDGGTYwGOq0VnljW2GJORA", "CcCG2hUBsdGosoMYp4UTzeMLh0VHSgsj", "uwu2fjRO7VYtbr9dCRkykSPy7wJOn3cF"];
+var currencyURL = "https://free.currconv.com";
+var currencyAPI = "a9b78f09163befb57ad2";
+var restURL = "https://restcountries.eu/rest/v2/name/";
+
+var currentCity;
+var country;
+var locationKey;
+var currencyCode;
+var currencySwitch = false;
+var conversionOrder;
+var amountEntered;
+var conversionRate;
+var mathResult;
+var mymap = "";
+
+//Variables for errors.
+var jqXHR, textStatus, errorThrown;
+
+
+
 $(function () {
   $("#modal").modal('show');
 });
@@ -86,30 +111,11 @@ window.onload = function () {
 
 // ------------ AUTHENTICATION STUFF ENDS HERE -------- //
 
-var weatherURL = "https://dataservice.accuweather.com/locations/v1/cities/search?apikey=";
- var weatherAPI = "Pw6sEtuGM1QQngSJFGOR9LFJLUtgnFhs";
-// var weatherAPI = "X9amRPkYQjYDGGTYwGOq0VnljW2GJORA";
-var currencyURL = "https://free.currconv.com";
-var currencyAPI = "a9b78f09163befb57ad2";
-var restURL = "https://restcountries.eu/rest/v2/name/";
-
-var currentCity;
-var country;
-var locationKey;
-var currencyCode;
-var currencySwitch = false;
-var conversionOrder;
-var amountEntered;
-var conversionRate;
-var mathResult;
-var mymap = "";
-
-
 // =============================== Functions ===============================
 // Get info for a city.
 function getInfo(cityName) {
   $.ajax({
-    url: weatherURL + weatherAPI + "&q=" + cityName,
+    url: weatherURL + weatherAPI[weatherIndex] + "&q=" + cityName,
     method: "GET"
   }).then(function (response) {
     console.log(response);
@@ -259,7 +265,17 @@ function getInfo(cityName) {
       console.log(response.DailyForecasts[2].Day.RainProbability);
 
     });
-  });
+  })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      if(textStatus != undefined){
+      weatherIndex++;
+      getInfo(currentCity);
+      console.log("Error: " + textStatus + " : " + errorThrown) ;
+      }
+      else{
+        console.log("Error is undefined, searched for a city that doesn't exist!")
+      }
+    });
 
 
 }
