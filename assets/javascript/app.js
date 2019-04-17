@@ -6,7 +6,12 @@ $('.menu-link').click(function () {
   $('.collapse').hide();
 });
 $('.navbar-toggler').click(function () {
-  $('.collapse').show();
+  if ($('.collapse').visibility === visible) {
+    $('.collapse').hide();
+  }
+  else {
+    $('.collapse').show();
+  }
 });
 
 
@@ -87,7 +92,7 @@ window.onload = function () {
 // ------------ AUTHENTICATION STUFF ENDS HERE -------- //
 
 var weatherURL = "https://dataservice.accuweather.com/locations/v1/cities/search?apikey=";
- var weatherAPI = "Pw6sEtuGM1QQngSJFGOR9LFJLUtgnFhs";
+var weatherAPI = "Pw6sEtuGM1QQngSJFGOR9LFJLUtgnFhs";
 // var weatherAPI = "X9amRPkYQjYDGGTYwGOq0VnljW2GJORA";
 var currencyURL = "https://free.currconv.com";
 var currencyAPI = "a9b78f09163befb57ad2";
