@@ -273,10 +273,10 @@ $("#searchButton").on("click", function () {
   getInfo(currentCity);
 });
 
-$("#minisearchButton").on("click", function () {
+$("#dropdownSearchButton").on("click", function () {
   event.preventDefault();
-  currentCity = $("#minicitySearch").val();
-  $("#minicitySearch").val("");
+  currentCity = $("#dropdownCitySearch").val();
+  $("#dropdownCitySearch").val("");
   console.log("current city is " + currentCity);
   getInfo(currentCity);
 });
