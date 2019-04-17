@@ -281,6 +281,17 @@ $("#minisearchButton").on("click", function () {
   getInfo(currentCity);
 });
 
+
+$("#modal .input-group button").on("click", function () {
+  event.preventDefault();
+  currentCity = $("#modal #modalcitySearch").val();
+  $("#modal #modalcitySearch").val("");
+  console.log("current city is " + currentCity);
+  getInfo(currentCity);
+});
+
+
+
 // Calculate the currency conversion.
 $("#currencyCalc").on("click", function () {
   event.preventDefault();
