@@ -87,8 +87,8 @@ window.onload = function () {
 // ------------ AUTHENTICATION STUFF ENDS HERE -------- //
 
 var weatherURL = "https://dataservice.accuweather.com/locations/v1/cities/search?apikey=";
-// var weatherAPI = "Pw6sEtuGM1QQngSJFGOR9LFJLUtgnFhs";
-var weatherAPI = "X9amRPkYQjYDGGTYwGOq0VnljW2GJORA";
+ var weatherAPI = "Pw6sEtuGM1QQngSJFGOR9LFJLUtgnFhs";
+// var weatherAPI = "X9amRPkYQjYDGGTYwGOq0VnljW2GJORA";
 var currencyURL = "https://free.currconv.com";
 var currencyAPI = "a9b78f09163befb57ad2";
 var restURL = "https://restcountries.eu/rest/v2/name/";
@@ -233,7 +233,7 @@ function getInfo(cityName) {
     });
 
     $.ajax({
-      url: "https://dataservice.accuweather.com/forecasts/v1/daily/5day/" + locationKey + "?apikey=X9amRPkYQjYDGGTYwGOq0VnljW2GJORA",
+      url: "https://dataservice.accuweather.com/forecasts/v1/daily/5day/" + locationKey + "?apikey=Pw6sEtuGM1QQngSJFGOR9LFJLUtgnFhs",
       method: "GET"
     }).then(function (response) {
       console.log(response);
