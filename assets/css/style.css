@@ -5,6 +5,8 @@ html {
   body {
     font-family: 'Poiret One', cursive;
     font-size: 20px;
+    color: black;
+    font-weight: 2em;
    background: #01233f;
   }
 .title {
@@ -29,10 +31,11 @@ html {
 .sub-title {
     color: #53853c;
 }
+
 .google-avatar {
-   
-    float: right;
- }
+   float: right;
+}
+
 #search-bar-inner {
     display: none;
 }
@@ -45,7 +48,24 @@ h4, .country-head {
 .about-image {
     border-radius: 50%;
     margin-left: 20%;
-    
+}
+#localForecast {
+    padding-top: 50px;
+ color: #53853c;
+ background: #f4f4f4;
+min-height: 510px;
+}
+#forecast-display {
+    font-size: 20px;
+    margin-top: 20px;
+}
+.day {
+    background: #01233f;
+    color: #f4f4f4;
+    margin: 10px;
+    margin-right: 100PX;
+    font-size: 2rem;
+    text-align: center;
 }
 #mapid {
     z-index: 0;
@@ -56,7 +76,7 @@ h4, .country-head {
 }
 .test-div {
     display: block;
-    float: left;
+    /* float: left; */
     color: #f4f4f4;
     position: absolute;
     top: 6px;
@@ -113,6 +133,7 @@ font-family: 'Great Vibes', cursive; */
         font-size: 2.5rem;
         position: absolute;
         top: 5px;
+        float: left;
     }
 #citySearch, #searchButton {
     display: none;
@@ -120,6 +141,11 @@ font-family: 'Great Vibes', cursive; */
 #search-bar-inner {
     display: block;
 }
+.google-avatar{
+    display: inline;
+   
+}
+
 .about-image {
     border-radius: 50%;
     
@@ -127,8 +153,23 @@ font-family: 'Great Vibes', cursive; */
     margin-right: 35%;
     
 }
-  }
   
+#currencyForm{
+    width: 100%;
+    
+}
+
+#inputCurrency{
+  float: left;
+  width: 20%;
+  margin: 5px;
+}
+
+#enteredCurrency{
+  display: inline;
+  margin: 5px;
+}
+}
   @media screen and (max-width: 500px) {
     
     .test-div {
@@ -140,4 +181,4 @@ font-family: 'Great Vibes', cursive; */
     .test-div {
         font-size: 1rem;
     }
-  }
+}
