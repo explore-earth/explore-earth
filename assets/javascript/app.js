@@ -241,20 +241,20 @@ function getInfo(cityName) {
 
 
       $("#icon0").html("<img src='assets/images/" + response.DailyForecasts[0].Day.Icon + ".png'>");
-      $("#minMax0").html(response.DailyForecasts[0].Temperature.Minimum.Value + " " + response.DailyForecasts[0].Temperature.Minimum.Unit + " / " + response.DailyForecasts[0].Temperature.Maximum.Value + " " + response.DailyForecasts[0].Temperature.Maximum.Unit);
+      $("#minMax0").html(response.DailyForecasts[0].Temperature.Maximum.Value + " " + response.DailyForecasts[0].Temperature.Maximum.Unit + " / " + response.DailyForecasts[0].Temperature.Minimum.Value + " " + response.DailyForecasts[0].Temperature.Minimum.Unit);
       $("#chanceRain0").html(response.DailyForecasts[0].Day.IconPhrase);
       console.log(response.DailyForecasts[0].Day.RainProbability);
 
 
       $("#icon1").html("<img src='assets/images/" + response.DailyForecasts[1].Day.Icon + ".png'>");
-      $("#minMax1").html(response.DailyForecasts[1].Temperature.Minimum.Value + " " + response.DailyForecasts[1].Temperature.Minimum.Unit + " / " + response.DailyForecasts[1].Temperature.Maximum.Value + " " + response.DailyForecasts[1].Temperature.Maximum.Unit);
+      $("#minMax1").html(response.DailyForecasts[1].Temperature.Maximum.Value + " " + response.DailyForecasts[1].Temperature.Maximum.Unit + " / " + response.DailyForecasts[1].Temperature.Minimum.Value + " " + response.DailyForecasts[1].Temperature.Minimum.Unit);
       $("#chanceRain1").html(response.DailyForecasts[1].Day.IconPhrase);
       console.log(response.DailyForecasts[1].Day.RainProbability);
 
       var date2 = response.DailyForecasts[2].Date.slice(0, 10);
       $("#icon2").html("<img src='assets/images/" + response.DailyForecasts[2].Day.Icon + ".png'>");
       $("#date-2").html(date2);
-      $("#minMax2").html(response.DailyForecasts[2].Temperature.Minimum.Value + " " + response.DailyForecasts[2].Temperature.Minimum.Unit + " / " + response.DailyForecasts[2].Temperature.Maximum.Value + " " + response.DailyForecasts[2].Temperature.Maximum.Unit);
+      $("#minMax2").html(response.DailyForecasts[2].Temperature.Maximum.Value + " " + response.DailyForecasts[2].Temperature.Maximum.Unit + " / " + response.DailyForecasts[2].Temperature.Minimum.Value + " " + response.DailyForecasts[2].Temperature.Minimum.Unit);
       $("#chanceRain2").html(response.DailyForecasts[2].Day.IconPhrase);
       console.log(response.DailyForecasts[2].Day.RainProbability);
 
