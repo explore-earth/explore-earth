@@ -6,9 +6,13 @@ $('.menu-link').click(function () {
   $('.collapse').hide();
 });
 $('.navbar-toggler').click(function () {
-  $('.collapse').show();
+  if ($('.collapse').visibility === visible) {
+    $('.collapse').hide();
+  }
+  else {
+    $('.collapse').show();
+  }
 });
-
 
 
 // ---------------- AUTHENTICATION STUFF STARTS HERE ----------------- // 
