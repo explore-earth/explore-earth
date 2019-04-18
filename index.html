@@ -850,10 +850,10 @@
        
         <div id="journal" class="container" style="display:none">
             
-            <div class="col-md-12">
-                <h2>Journal</h2>
+            <div class="col-md-12" id="journal-display">
+                <!-- <h2>Journal</h2> -->
                 
-                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <!-- <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                     <button type="button" class="btn btn-secondary">Most Recent Entry</button>
                     <div class="btn-group" role="group">
                         <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
@@ -865,11 +865,11 @@
                             <a class="dropdown-item" href="#">Link to previous entry</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
-                <h4>Location: ...</h4>
+                <!-- <h4 id="location-text">Location: ...</h4>
                 <img src="https://via.placeholder.com/250" style="float:left; margin:10px" alt="Journal image"
-                    class="journalImage">
+                    class="journalImage" id="image-one">
                 <p>Journal entries will be displayed here. A paragraph of text with an <a href="#">unassigned link.</a>
                 </p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam iste mollitia nam ab sit, expedita
@@ -891,7 +891,7 @@
                     dolore dolorem? Rem.</p>
                 <p>Dignissimos possimus sed vitae accusamus. Placeat deserunt similique omnis accusantium et, ad ipsa
                     excepturi sit perspiciatis vel impedit deleniti itaque iste officia saepe cumque. Velit culpa
-                    praesentium dolor alias excepturi?</p>
+                    praesentium dolor alias excepturi?</p> -->
 
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg">New
                     journal entry</button>
@@ -907,14 +907,14 @@
                                 <form>
                                     <div class="form-group">
                                         <label>Where was this?</label>
-                                        <input class="form-control" type="text" placeholder="Location">
+                                        <input class="form-control" id="location" type="text" placeholder="Location">
                                         <label>Write about your experience</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                        <textarea class="form-control" id="journal-entry-text"
                                             rows="3"></textarea>
                                     </div>
                                     <div class="input-group mb-3">
                                             <div class="custom-file">
-                                              <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                              <input type="file" class="custom-file-input" id="upload">
                                               <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Photo</label>
                                             </div>
                                         </div>
@@ -925,7 +925,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success">Save changes</button>
+                                <button type="button" id="upload-journal-entry" class="btn btn-success">Save changes</button>
                             </div>
                         </div>
                     </div>
