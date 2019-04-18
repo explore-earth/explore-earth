@@ -42,6 +42,9 @@ html {
 h4, .country-head {
     font-weight: bold;
 }
+.country-container {
+    padding: 10px;
+}
 #customs, #currencyConverter {
     padding: 30px;
 }
