@@ -1,4 +1,4 @@
-// ========================================= Varriables =========================================
+// ========================================= Variables =========================================
 
 var weatherIndex = 0;
 var weatherURL = "https://dataservice.accuweather.com/locations/v1/cities/search?apikey=";
@@ -42,6 +42,10 @@ $('.navbar-toggler').click(function () {
 
 // ---------------- AUTHENTICATION STUFF STARTS HERE ----------------- // 
 
+var selectedFile;
+var journalEntryInput = document.getElementById("journal-entry-text");
+var locationInput = document.getElementById("location");
+
 // Firebase authentication starts here
 var config = {
   apiKey: "AIzaSyBVduicjSagRcZbWga7LhS6zrCIq0OZYuw",
@@ -52,6 +56,8 @@ var config = {
   messagingSenderId: "746048417171"
 };
 firebase.initializeApp(config);
+
+
 firebase.auth().onAuthStateChanged(function (user) {
   console.log(user);
   if (user) {
@@ -61,18 +67,19 @@ firebase.auth().onAuthStateChanged(function (user) {
     photoURL.attr("class", "google-avatar");
     photoURL.css({ "width": "7%", "height": "7%", "border-radius": "50%" });
     $("#user-avatar").append(photoURL);
-    // var displayName = user.displayName;
-    // $("#user-avatar").append(displayName); //this does not work yet
+    document.getElementById("customs").style.display = "block";
     document.getElementById("journal").style.display = "block";
     document.getElementById("menu-journal").style.display = "block";
     document.getElementById("menu-login").style.display = "none";
     document.getElementById("menu-logout").style.display = "block";
+    document.getElementById("user-avatar").style.display = "block";
+
 
 
 
   } else {
     console.log("We don't have a user");
-    $("#user-avatar").hide; ////this does not work yet
+    $("#user-avatar").hide;
     document.getElementById("customs").style.display = "none";
     document.getElementById("journal").style.display = "none";
     document.getElementById("menu-journal").style.display = "none";
@@ -111,9 +118,120 @@ window.onload = function () {
   document.getElementById("customs").style.display = "none";
   document.getElementById("journal").style.display = "none";
   document.getElementById("menu-journal").style.display = "none";
+  document.getElementById("upload").addEventListener('change', handleFileSelect, false);
+  document.getElementById("upload-journal-entry").addEventListener('click', confirmUpload);
+
+
 }
 
+
+
 // ------------ AUTHENTICATION STUFF ENDS HERE -------- //
+
+// ------------ JOURNAL STORAGE AND DATABASE STUFF STARTS HERE -------- //
+var database = firebase.database();
+function handleFileSelect(event) {
+  selectedFile = event.target.files[0];
+};
+
+console.log("end of handleFile");
+
+
+function confirmUpload() {
+  var metadata = {
+    contentType: 'image',
+    customMetadata: {
+      'location': $("#location").val(),
+      'entry': $("#journal-entry-text").val(),
+    },
+  };
+  console.log("end of confirmupload");
+  var storageRef = firebase.storage().ref().child('travelImages/' + selectedFile.name);
+  var uploadTask = storageRef.put(selectedFile, metadata);
+  // Register three observers:
+  // 1. 'state_changed' observer, called any time the state changes
+  // 2. Error observer, called on failure
+  // 3. Completion observer, called on successful completion
+  uploadTask.on('state_changed', function (snapshot) {
+    // Observe state change events such as progress, pause, and resume
+    // See below for more detail
+  }, function (error) {
+    // Handle unsuccessful uploads
+  }, function () {
+    // Handle successful uploads on complete
+    // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+    var postKey = database.ref('Posts/').push().key;
+    var downloadURL = uploadTask.snapshot.downloadURL;
+    var urlPromise = storageRef.getDownloadURL().then(function (url) {
+      console.log(url);
+      var postData = {
+        url, //we need to find a way to pass this, so that we can call it back later in the queryDatabase function
+        journalEntry: $("#journal-entry-text").val().trim(),
+        location: $("#location").val().trim()
+      };
+      $("#upload-journal-entry")[0].after("Upload successful!");
+      var updates = {};
+      updates['Posts/' + postKey] = postData;
+      updateDOM(postData)
+      return database.ref().update(updates, queryDatabase);
+    });
+  });
+}
+
+function updateDOM(postData) {
+
+}
+
+console.log('does it work here?');
+
+function queryDatabase() {
+  $("#journal-display").html("");
+  database.ref('Posts/').once('value').then(function (snapshot) {
+    var postObject = snapshot.val();
+    console.log("postobject goes here " + postObject);
+    var keys = Object.keys(postObject);
+    console.log("keys go here " + keys);
+
+    console.log("before for loop");
+    for (var i = 0; i < keys.length; i++) {
+      var locationRow = $("<div>").addClass("row");
+      var currentRow = $("<div>").addClass("row");
+      var currentObject = postObject[keys[i]];
+
+      var colImage = $("<div>").addClass("col-3");
+      var colEntry = $("<div>").addClass("col-9");
+
+      var travelImage = $("<img>");
+      travelImage.css({
+        "width":"150px",
+        "height":"150px"
+
+      })
+      travelImage.attr("src", currentObject.url);
+      travelImage.addClass("contentImage");
+      var travelP = $("<p>").addClass("contentLocation").html(currentObject.location);
+      
+      var travelSpan = $("<span>").html(currentObject.journalEntry).addClass("Journalcontent");
+  
+      colImage.append(travelImage);
+      colEntry.append(travelSpan);
+      locationRow.append(travelP);
+      currentRow.append(colImage);
+      currentRow.append(colEntry);
+
+      locationRow.append(currentRow);
+      $("#journal-display").append(locationRow);
+    }
+
+
+  });
+}
+
+
+
+
+
+// ------------------ JOURNAL STORAGE ENDS HERE ------------------- //
 
 // =============================== Functions ===============================
 // Get info for a city.
