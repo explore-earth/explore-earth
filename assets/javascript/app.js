@@ -202,8 +202,8 @@ function getInfo(cityName) {
     locationKey = response[0].Key;
     console.log(locationKey);
 
-    var latitude = response[0].GeoPosition.Latitude;
-    var longitude = response[0].GeoPosition.Longitude;
+    latitude = response[0].GeoPosition.Latitude;
+    longitude = response[0].GeoPosition.Longitude;
 
     console.log("Long = " + longitude + " and Lat = " + latitude);
 
