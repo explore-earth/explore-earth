@@ -251,7 +251,7 @@ function getInfo(cityName) {
       $("#chanceRain1").html(response.DailyForecasts[1].Day.IconPhrase);
       console.log(response.DailyForecasts[1].Day.RainProbability);
 
-      var date2 = response.DailyForecasts[2].Date.slice(0, 10);
+      var date2 = response.DailyForecasts[2].Date.slice(5, 10);
       $("#icon2").html("<img src='assets/images/" + response.DailyForecasts[2].Day.Icon + ".png'>");
       $("#date-2").html(date2);
       $("#minMax2").html(response.DailyForecasts[2].Temperature.Maximum.Value + " " + response.DailyForecasts[2].Temperature.Maximum.Unit + " / " + response.DailyForecasts[2].Temperature.Minimum.Value + " " + response.DailyForecasts[2].Temperature.Minimum.Unit);
