@@ -327,3 +327,29 @@ $("#currencySwitch").on("click", function () {
 
   $("#currencyCalc").trigger("click");
 });
+
+var zomatoAPIkey = "925860112b71723ed5c199cbf866c7e4"
+$("#restaurantSearchBtn").on("click", function(){
+  event.preventDefault();
+  var searchQuery = $("#restaurantSearch").val()
+  console.log(currentCity)
+  $.ajax({
+    url: "https://developers.zomato.com/api/v2.1/search?apikey=" + zomatoAPIkey + "&q=" + searchQuery + "&count=5&lat=" + latitude + "&lon=" + longitude + "&sort=real_distance&order=asc",
+    method: "GET"
+  }).then(function (response) {
+    console.log(response);
+    console.log(response.restaurants[0].restaurant.location.latitude);
+    var marker1 = L.marker([response.restaurants[0].restaurant.location.latitude, response.restaurants[0].restaurant.location.longitude]).addTo(mymap);
+    var marker2 = L.marker([response.restaurants[1].restaurant.location.latitude, response.restaurants[1].restaurant.location.longitude]).addTo(mymap);
+    var marker3 = L.marker([response.restaurants[2].restaurant.location.latitude, response.restaurants[2].restaurant.location.longitude]).addTo(mymap);
+    var marker4 = L.marker([response.restaurants[3].restaurant.location.latitude, response.restaurants[3].restaurant.location.longitude]).addTo(mymap);
+    var marker5 = L.marker([response.restaurants[4].restaurant.location.latitude, response.restaurants[4].restaurant.location.longitude]).addTo(mymap);
+    marker1.bindPopup(response.restaurants[0].restaurant.name + "<br> Address: " + response.restaurants[0].restaurant.location.address).openPopup()
+    marker2.bindPopup(response.restaurants[1].restaurant.name + "<br> Address: " + response.restaurants[1].restaurant.location.address)
+    marker3.bindPopup(response.restaurants[2].restaurant.name + "<br> Address: " + response.restaurants[2].restaurant.location.address)
+    marker4.bindPopup(response.restaurants[3].restaurant.name + "<br> Address: " + response.restaurants[3].restaurant.location.address)
+    marker5.bindPopup(response.restaurants[4].restaurant.name + "<br> Address: " + response.restaurants[4].restaurant.location.address)
+    
+   
+})
+})
