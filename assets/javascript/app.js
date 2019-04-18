@@ -31,7 +31,7 @@ $('.menu-link').click(function () {
   $('.collapse').hide();
 });
 $('.navbar-toggler').click(function () {
-  if ($('.collapse').visibility === visible) {
+  if ($(".collapse").is(":visible")) {
     $('.collapse').hide();
   }
   else {
