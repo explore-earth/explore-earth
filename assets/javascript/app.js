@@ -361,7 +361,7 @@ function getInfo(cityName) {
     });
 
     $.ajax({
-      url: "https://dataservice.accuweather.com/forecasts/v1/daily/5day/" + locationKey + "?apikey=Pw6sEtuGM1QQngSJFGOR9LFJLUtgnFhs",
+      url: "https://dataservice.accuweather.com/forecasts/v1/daily/5day/" + locationKey + "?apikey=" + weatherAPI[weatherIndex],
       method: "GET"
     }).then(function (response) {
       console.log(response);
@@ -387,8 +387,7 @@ function getInfo(cityName) {
       console.log(response.DailyForecasts[2].Day.RainProbability);
 
     });
-  })
-    .fail(function (jqXHR, textStatus, errorThrown) {
+  }).fail(function (jqXHR, textStatus, errorThrown) {
       if(textStatus != undefined){
       weatherIndex++;
       getInfo(currentCity);
