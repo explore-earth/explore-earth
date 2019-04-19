@@ -849,89 +849,50 @@
         <!-- Journal starts here -->
        
         <div id="journal" class="container" style="display:none">
-            
-            <div class="col-md-12" id="journal-display">
-                <!-- <h2>Journal</h2> -->
-                
-                <!-- <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                    <button type="button" class="btn btn-secondary">Most Recent Entry</button>
-                    <div class="btn-group" role="group">
-                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Previous Entries
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <a class="dropdown-item" href="#">Link to previous entry</a>
-                            <a class="dropdown-item" href="#">Link to previous entry</a>
-                        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Journal</h2>
+
+
+                <div class="test-content">
+                    <div class="test-header">
+                        <h5>New entry</h5>
                     </div>
-                </div> -->
-                
-                <!-- <h4 id="location-text">Location: ...</h4>
-                <img src="https://via.placeholder.com/250" style="float:left; margin:10px" alt="Journal image"
-                    class="journalImage" id="image-one">
-                <p>Journal entries will be displayed here. A paragraph of text with an <a href="#">unassigned link.</a>
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam iste mollitia nam ab sit, expedita
-                    obcaecati nemo, minus adipisci ea esse itaque facilis? Quaerat, fuga commodi aliquid natus saepe
-                    perferendis!</p>
-                <p>Sunt fuga culpa, dolorum in a omnis ut, natus delectus nobis fugit atque cumque aperiam facere
-                    temporibus voluptatum, sed excepturi sequi! Laudantium quis distinctio ipsam temporibus alias quo
-                    repellendus iusto.</p>
-                <p>Numquam, qui quidem voluptatem, harum expedita vel nisi repellendus quisquam sapiente deserunt
-                    blanditiis? Ipsam quasi, veritatis qui cum voluptate doloremque consequatur suscipit animi itaque
-                    natus fugiat, cumque labore laudantium necessitatibus.</p>
-                <img src="https://via.placeholder.com/250" style="float:right; margin:10px" alt="Journal image"
-                    class="journalImage">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum assumenda labore expedita modi nam
-                    saepe minus odit vitae sequi, atque harum commodi, velit nostrum explicabo fugit quaerat ducimus
-                    officiis rem.</p>
-                <p>Dolorum quo quasi qui dignissimos expedita a sequi suscipit? Officia cupiditate nisi quos labore ex
-                    excepturi, consequatur asperiores provident perferendis animi voluptatum amet totam soluta eum hic
-                    dolore dolorem? Rem.</p>
-                <p>Dignissimos possimus sed vitae accusamus. Placeat deserunt similique omnis accusantium et, ad ipsa
-                    excepturi sit perspiciatis vel impedit deleniti itaque iste officia saepe cumque. Velit culpa
-                    praesentium dolor alias excepturi?</p> -->
-
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg">New
-                    journal entry</button>
-
-                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5>New entry</h5>
+                    <div class="test-entry">
+                        <form>
+                            <div class="form-group">
+                                <label>Where was this?</label>
+                                <input class="form-control" id="location" type="text" placeholder="Location">
+                                <label>Write about your experience</label>
+                                <textarea class="form-control" id="journal-entry-text" rows="3"></textarea>
                             </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label>Where was this?</label>
-                                        <input class="form-control" id="location" type="text" placeholder="Location">
-                                        <label>Write about your experience</label>
-                                        <textarea class="form-control" id="journal-entry-text"
-                                            rows="3"></textarea>
-                                    </div>
-                                    <div class="input-group mb-3">
-                                            <div class="custom-file">
-                                              <input type="file" class="custom-file-input" id="upload">
-                                              <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload Photo</label>
-                                            </div>
-                                        </div>
-                                            <div id="photoUpload">
-                                                <!-- Photo file will be displayed here -->
-                                          </div>
-                                </form>
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="upload">
+                                    <label class="custom-file-label" for="inputGroupFile02"
+                                        aria-describedby="inputGroupFileAddon02">Upload Photo</label>
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" id="upload-journal-entry" class="btn btn-success">Save changes</button>
+                            <div id="photoUpload">
+                                <!-- Photo file will be displayed here -->
                             </div>
-                        </div>
+                        </form>
+                    </div>
+                    <div class="form-footer">
+                        <button type="button" id="upload-journal-entry" class="btn btn-success">Save changes</button>
                     </div>
                 </div>
-
             </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" id="journal-display">
+            
+            </div>
+
+        </div>
+
+    </div>
             <a id="currency" class="smooth"></a>
         </div>
         
