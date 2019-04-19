@@ -144,34 +144,39 @@ h2 {
    margin: 10px;
 }
 
-.contentImageEven {
-    float: right;
-    display: block;
-    border: 5px solid #343a40;
-    /* margin: 20px; */
-    /* margin-top: 50px; */
-    padding: 10px;
+/* journal stuff starts here */
 
+#experience-label {
+    margin: .5em 0;
 }
 
-.JournalcontentEven {
-    float: left;
-    display: block;
-    margin-right: 10px;
+#location-label {
+    margin: .5em 0;
+}
+
+.contentImageEven {
+    margin-left: 4em;
 
 }
 
 .contentImageOdd {
-    float: left;
-    display: block;
-    margin-right: 10px;
-    
+    margin-left: 2em;
+
 }
 
+.column-odd {
+   align-content: center;
+   vertical-align: middle;
+}
+
+.column-even {
+    align-content: center;
+    vertical-align: middle;
+ }
+
 .JournalcontentOdd {
-    float: right;
-    display: block;
-    margin-right: 10px;
+   margin: auto 1em;
+
 }
 
 .contentLocation {
@@ -180,13 +185,19 @@ h2 {
     text-align: center;
     border-top: solid .5px #01223f;
     border-bottom: solid .5px #01223f;
-    width: 100%;
+    background-color: #01223f;
+    color: white;
+    font-weight: bold;
+    width: 97%;
 }
 
 .content-row {
-    margin: 30px 20px;
+    margin: 2em;
+    width: 100%;
     
 }
+
+/* journal stuff ends here */
 
 @media screen and (max-width: 945px) {
     
