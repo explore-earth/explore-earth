@@ -57,11 +57,12 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
 firebase.auth().onAuthStateChanged(function (user) {
   console.log(user);
   if (user) {
     console.log('We have a user');
+    user.uid;
+    console.log("user id is " + user.uid);
     var photoURL = $("<img>");
     photoURL.attr("src", user.photoURL);
     photoURL.attr("class", "google-avatar");
@@ -73,7 +74,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById("menu-login").style.display = "none";
     document.getElementById("menu-logout").style.display = "block";
     document.getElementById("user-avatar").style.display = "block";
-
+    queryDatabase();
 
 
 
@@ -89,12 +90,15 @@ firebase.auth().onAuthStateChanged(function (user) {
   }
 });
 
+
+
 $("#menu-login").on('click', function () {
   console.log('this button works');
   var provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
   firebase.auth().signInWithPopup(provider)
     .then(function (user) {
+      
       console.log(user);
     }).catch(function (error) {
       console.log(error);
@@ -109,6 +113,8 @@ $("#menu-logout").on('click', function () {
     document.getElementById("journal").style.display = "none";
     document.getElementById("menu-journal").style.display = "none";
     document.getElementById("menu-login").style.display = "block";
+    location.reload();
+    $("#user-avatar").empty;
   })
 });
 
@@ -119,11 +125,16 @@ window.onload = function () {
   document.getElementById("journal").style.display = "none";
   document.getElementById("menu-journal").style.display = "none";
   document.getElementById("upload").addEventListener('change', handleFileSelect, false);
-  document.getElementById("upload-journal-entry").addEventListener('click', confirmUpload);
-
+  // document.getElementById("upload-journal-entry").addEventListener('click', confirmUpload);
+  
 
 }
 
+$("#upload-journal-entry").on('click', function () {
+  confirmUpload();
+  queryDatabase();
+  
+});
 
 
 // ------------ AUTHENTICATION STUFF ENDS HERE -------- //
@@ -138,6 +149,7 @@ console.log("end of handleFile");
 
 
 function confirmUpload() {
+  var uid = firebase.auth().currentUser.uid;
   var metadata = {
     contentType: 'image',
     customMetadata: {
@@ -146,7 +158,7 @@ function confirmUpload() {
     },
   };
   console.log("end of confirmupload");
-  var storageRef = firebase.storage().ref().child('travelImages/' + selectedFile.name);
+  var storageRef = firebase.storage().ref('users/' + uid + '/travelImages/' + selectedFile.name);
   var uploadTask = storageRef.put(selectedFile, metadata);
   // Register three observers:
   // 1. 'state_changed' observer, called any time the state changes
@@ -160,7 +172,7 @@ function confirmUpload() {
   }, function () {
     // Handle successful uploads on complete
     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-    var postKey = database.ref('Posts/').push().key;
+    var postKey = database.ref('users/' + uid + '/Posts/').push().key;
     var downloadURL = uploadTask.snapshot.downloadURL;
     var urlPromise = storageRef.getDownloadURL().then(function (url) {
       console.log(url);
@@ -171,9 +183,9 @@ function confirmUpload() {
       };
       $("#upload-journal-entry")[0].after("Upload successful!");
       var updates = {};
-      updates['Posts/' + postKey] = postData;
+      updates['users/' + uid + '/Posts/' + postKey] = postData;
       updateDOM(postData)
-      return database.ref().update(updates, queryDatabase);
+      return database.ref().update(updates);
     });
   });
 }
@@ -185,8 +197,9 @@ function updateDOM(postData) {
 console.log('does it work here?');
 
 function queryDatabase() {
-  $("#journal-display").html("");
-  database.ref('Posts/').once('value').then(function (snapshot) {
+  var uid = firebase.auth().currentUser.uid;
+  // $("#journal-display").html("");
+  database.ref('users/' + uid + '/Posts/').once('value').then(function (snapshot) {
     var postObject = snapshot.val();
     console.log("postobject goes here " + postObject);
     var keys = Object.keys(postObject);
@@ -194,31 +207,38 @@ function queryDatabase() {
 
     console.log("before for loop");
     for (var i = 0; i < keys.length; i++) {
-      var locationRow = $("<div>").addClass("row");
-      var currentRow = $("<div>").addClass("row");
+      var locationRow = $("<div>").addClass("row location-row");
+      var currentRow = $("<div>").addClass("row content-row");
       var currentObject = postObject[keys[i]];
 
-      var colImage = $("<div>").addClass("col-3");
-      var colEntry = $("<div>").addClass("col-9");
-
+      // var colJournal = $("<div>").addClass("col-md-12");
+      
       var travelImage = $("<img>");
       travelImage.css({
         "width":"150px",
         "height":"150px"
 
       })
-      travelImage.attr("src", currentObject.url);
-      travelImage.addClass("contentImage");
-      var travelP = $("<p>").addClass("contentLocation").html(currentObject.location);
-      
-      var travelSpan = $("<span>").html(currentObject.journalEntry).addClass("Journalcontent");
-  
-      colImage.append(travelImage);
-      colEntry.append(travelSpan);
-      locationRow.append(travelP);
-      currentRow.append(colImage);
-      currentRow.append(colEntry);
 
+      var travelDiv = $("<div>").html(currentObject.journalEntry);
+
+      if (i % 2 === 0) {
+        travelImage.addClass("contentImageEven");
+        travelDiv.addClass("JournalcontentEven");
+      } else {
+        travelImage.addClass("contentImageOdd");
+        travelDiv.addClass("JournalcontentOdd");
+      }
+      travelImage.attr("src", currentObject.url);
+      var travelLocation = $("<p>").addClass("contentLocation").html(currentObject.location);
+      
+      
+  
+      currentRow.append(travelDiv);
+      currentRow.append(travelImage);
+      locationRow.append(travelLocation);
+      // currentRow.append(colJournal);
+      
       locationRow.append(currentRow);
       $("#journal-display").append(locationRow);
     }
@@ -226,9 +246,6 @@ function queryDatabase() {
 
   });
 }
-
-
-
 
 
 // ------------------ JOURNAL STORAGE ENDS HERE ------------------- //
