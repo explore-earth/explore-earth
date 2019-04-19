@@ -224,7 +224,7 @@ h2 {
   
 }
 
-  @media screen and (max-width: 675px) {
+  @media screen and (max-width: 700px) {
     #user-avatar {
         display: none;
     }
