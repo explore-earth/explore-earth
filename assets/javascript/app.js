@@ -465,27 +465,30 @@ $("#currencySwitch").on("click", function () {
   $("#currencyCalc").trigger("click");
 });
 
-var zomatoAPIkey = "925860112b71723ed5c199cbf866c7e4"
+var fourSQAPIkey = "HJK3OU0TNHXQVAXAQXHQIGVD4RCLOG0BKRHWPETP3BPOCK5T"
+var secretFourSQKey = "IKHAACA1DLO31ZYDKUSMPPJHEFHJ1ORHPISRKAUUNLFJMZY4";
 $("#restaurantSearchBtn").on("click", function(){
+  searchQuery = "";
   event.preventDefault();
   var searchQuery = $("#restaurantSearch").val()
   console.log(currentCity)
   $.ajax({
-    url: "https://developers.zomato.com/api/v2.1/search?apikey=" + zomatoAPIkey + "&q=" + searchQuery + "&count=5&lat=" + latitude + "&lon=" + longitude + "&sort=real_distance&order=asc",
+    url: "https://api.foursquare.com/v2/venues/search?client_id=" + fourSQAPIkey + "&client_secret=" + secretFourSQKey + "&ll=" + latitude + "," + longitude + "&query=" + searchQuery + "&v=20190419",
+    // url: "https://developers.zomato.com/api/v2.1/search?apikey=" + zomatoAPIkey + "&q=" + searchQuery + "&count=5&lat=" + latitude + "&lon=" + longitude + "&sort=real_distance&order=asc",
     method: "GET"
   }).then(function (response) {
     console.log(response);
-    console.log(response.restaurants[0].restaurant.location.latitude);
-    var marker1 = L.marker([response.restaurants[0].restaurant.location.latitude, response.restaurants[0].restaurant.location.longitude]).addTo(mymap);
-    var marker2 = L.marker([response.restaurants[1].restaurant.location.latitude, response.restaurants[1].restaurant.location.longitude]).addTo(mymap);
-    var marker3 = L.marker([response.restaurants[2].restaurant.location.latitude, response.restaurants[2].restaurant.location.longitude]).addTo(mymap);
-    var marker4 = L.marker([response.restaurants[3].restaurant.location.latitude, response.restaurants[3].restaurant.location.longitude]).addTo(mymap);
-    var marker5 = L.marker([response.restaurants[4].restaurant.location.latitude, response.restaurants[4].restaurant.location.longitude]).addTo(mymap);
-    marker1.bindPopup(response.restaurants[0].restaurant.name + "<br> Address: " + response.restaurants[0].restaurant.location.address).openPopup()
-    marker2.bindPopup(response.restaurants[1].restaurant.name + "<br> Address: " + response.restaurants[1].restaurant.location.address)
-    marker3.bindPopup(response.restaurants[2].restaurant.name + "<br> Address: " + response.restaurants[2].restaurant.location.address)
-    marker4.bindPopup(response.restaurants[3].restaurant.name + "<br> Address: " + response.restaurants[3].restaurant.location.address)
-    marker5.bindPopup(response.restaurants[4].restaurant.name + "<br> Address: " + response.restaurants[4].restaurant.location.address)
+    console.log(response.response.venues[0].location.lat);
+     var marker1 = L.marker([response.response.venues[0].location.lat, response.response.venues[0].location.lng]).addTo(mymap);
+    var marker2 = L.marker([response.response.venues[1].location.lat, response.response.venues[1].location.lng]).addTo(mymap);
+    var marker3 = L.marker([response.response.venues[2].location.lat, response.response.venues[2].location.lng]).addTo(mymap);
+    var marker4 = L.marker([response.response.venues[3].location.lat, response.response.venues[3].location.lng]).addTo(mymap);
+    var marker5 = L.marker([response.response.venues[4].location.lat, response.response.venues[4].location.lng]).addTo(mymap);
+     marker1.bindPopup(response.response.venues[0].name + "<br> Address: " + response.response.venues[0].location.formattedAddress).openPopup();
+    marker2.bindPopup(response.response.venues[1].name + "<br> Address: " + response.response.venues[1].location.formattedAddress);
+    marker3.bindPopup(response.response.venues[2].name + "<br> Address: " + response.response.venues[2].location.formattedAddress);
+    marker4.bindPopup(response.response.venues[3].name + "<br> Address: " + response.response.venues[3].location.formattedAddress);
+    marker5.bindPopup(response.response.venues[4].name + "<br> Address: " + response.response.venues[4].location.formattedAddress);
     
    
 })
