@@ -474,12 +474,11 @@ $("#restaurantSearchBtn").on("click", function(){
   console.log(currentCity)
   $.ajax({
     url: "https://api.foursquare.com/v2/venues/search?client_id=" + fourSQAPIkey + "&client_secret=" + secretFourSQKey + "&ll=" + latitude + "," + longitude + "&query=" + searchQuery + "&v=20190419",
-    // url: "https://developers.zomato.com/api/v2.1/search?apikey=" + zomatoAPIkey + "&q=" + searchQuery + "&count=5&lat=" + latitude + "&lon=" + longitude + "&sort=real_distance&order=asc",
     method: "GET"
   }).then(function (response) {
     console.log(response);
     console.log(response.response.venues[0].location.lat);
-     var marker1 = L.marker([response.response.venues[0].location.lat, response.response.venues[0].location.lng]).addTo(mymap);
+    var marker1 = L.marker([response.response.venues[0].location.lat, response.response.venues[0].location.lng]).addTo(mymap);
     var marker2 = L.marker([response.response.venues[1].location.lat, response.response.venues[1].location.lng]).addTo(mymap);
     var marker3 = L.marker([response.response.venues[2].location.lat, response.response.venues[2].location.lng]).addTo(mymap);
     var marker4 = L.marker([response.response.venues[3].location.lat, response.response.venues[3].location.lng]).addTo(mymap);
