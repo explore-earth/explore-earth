@@ -143,6 +143,51 @@ h2 {
 .btn {
    margin: 10px;
 }
+
+.contentImageEven {
+    float: right;
+    display: block;
+    border: 5px solid #343a40;
+    /* margin: 20px; */
+    /* margin-top: 50px; */
+    padding: 10px;
+
+}
+
+.JournalcontentEven {
+    float: left;
+    display: block;
+    margin-right: 10px;
+
+}
+
+.contentImageOdd {
+    float: left;
+    display: block;
+    margin-right: 10px;
+    
+}
+
+.JournalcontentOdd {
+    float: right;
+    display: block;
+    margin-right: 10px;
+}
+
+.contentLocation {
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    border-top: solid .5px #01223f;
+    border-bottom: solid .5px #01223f;
+    width: 100%;
+}
+
+.content-row {
+    margin: 30px 20px;
+    
+}
+
 @media screen and (max-width: 945px) {
     
     .test-div {
