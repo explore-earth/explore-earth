@@ -485,7 +485,7 @@ $("#currencySwitch").on("click", function () {
 var fourSQAPIkey = "HJK3OU0TNHXQVAXAQXHQIGVD4RCLOG0BKRHWPETP3BPOCK5T"
 var secretFourSQKey = "IKHAACA1DLO31ZYDKUSMPPJHEFHJ1ORHPISRKAUUNLFJMZY4";
 $("#restaurantSearchBtn").on("click", function(){
-  searchQuery = "";
+  
   event.preventDefault();
   var searchQuery = $("#restaurantSearch").val()
   console.log(currentCity)
@@ -508,4 +508,5 @@ $("#restaurantSearchBtn").on("click", function(){
     
    
 })
+  searchQuery = $("#restaurantSearch").val("");
 })
