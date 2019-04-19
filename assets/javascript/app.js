@@ -68,12 +68,14 @@ firebase.auth().onAuthStateChanged(function (user) {
     photoURL.attr("class", "google-avatar");
     photoURL.css({ "width": "7%", "height": "7%", "border-radius": "50%" });
     $("#user-avatar").append(photoURL);
+    document.getElementById("customs").style.display = "block";
     document.getElementById("journal").style.display = "block";
     document.getElementById("menu-journal").style.display = "block";
     document.getElementById("menu-login").style.display = "none";
     document.getElementById("menu-logout").style.display = "block";
     document.getElementById("user-avatar").style.display = "block";
     queryDatabase();
+    updateDOM();
 
 
 
@@ -124,14 +126,12 @@ window.onload = function () {
   document.getElementById("journal").style.display = "none";
   document.getElementById("menu-journal").style.display = "none";
   document.getElementById("upload").addEventListener('change', handleFileSelect, false);
-  // document.getElementById("upload-journal-entry").addEventListener('click', confirmUpload);
   
-
 }
 
 $("#upload-journal-entry").on('click', function () {
   confirmUpload();
-  queryDatabase();
+  updateDOM();
   
 });
 
@@ -196,6 +196,7 @@ function updateDOM(postData) {
 console.log('does it work here?');
 
 function queryDatabase() {
+  
   var uid = firebase.auth().currentUser.uid;
   // $("#journal-display").html("");
   database.ref('users/' + uid + '/Posts/').once('value').then(function (snapshot) {
@@ -210,13 +211,14 @@ function queryDatabase() {
       var currentRow = $("<div>").addClass("row content-row");
       var currentObject = postObject[keys[i]];
 
-      // var colJournal = $("<div>").addClass("col-md-12");
+      var colOdd = $("<div>").addClass("col-md-6 column-odd");
+      var colEven = $("<div>").addClass("col-md-6 column-even");
       
       var travelImage = $("<img>");
       travelImage.css({
-        "width":"150px",
-        "height":"150px"
-
+        "width":"21em",
+        "height":"18em"
+      
       })
 
       var travelDiv = $("<div>").html(currentObject.journalEntry);
@@ -224,26 +226,28 @@ function queryDatabase() {
       if (i % 2 === 0) {
         travelImage.addClass("contentImageEven");
         travelDiv.addClass("JournalcontentEven");
+        colEven.append(travelImage);
+        colOdd.append(travelDiv);
       } else {
         travelImage.addClass("contentImageOdd");
         travelDiv.addClass("JournalcontentOdd");
+        colOdd.append(travelImage);
+        colEven.append(travelDiv);
       }
       travelImage.attr("src", currentObject.url);
       var travelLocation = $("<p>").addClass("contentLocation").html(currentObject.location);
       
-      
-  
-      currentRow.append(travelDiv);
-      currentRow.append(travelImage);
       locationRow.append(travelLocation);
-      // currentRow.append(colJournal);
-      
+      currentRow.append(colOdd);
+      currentRow.append(colEven);
       locationRow.append(currentRow);
       $("#journal-display").append(locationRow);
+      
     }
 
 
   });
+  
 }
 
 
