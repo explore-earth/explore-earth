@@ -68,7 +68,6 @@ firebase.auth().onAuthStateChanged(function (user) {
     photoURL.attr("class", "google-avatar");
     photoURL.css({ "width": "7%", "height": "7%", "border-radius": "50%" });
     $("#user-avatar").append(photoURL);
-    document.getElementById("customs").style.display = "block";
     document.getElementById("journal").style.display = "block";
     document.getElementById("menu-journal").style.display = "block";
     document.getElementById("menu-login").style.display = "none";
