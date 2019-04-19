@@ -847,23 +847,20 @@
 
 
         <!-- Journal starts here -->
-       
-        <div id="journal" class="container" style="display:none">
+
+    <div id="journal" class="container" style="display:none">
         <div class="row">
             <div class="col-md-12">
                 <h2>Journal</h2>
-
-
                 <div class="test-content">
                     <div class="test-header">
-                        <h5>New entry</h5>
                     </div>
                     <div class="test-entry">
                         <form>
                             <div class="form-group">
-                                <label>Where was this?</label>
+                                <label id="location-label">Where was this?</label>
                                 <input class="form-control" id="location" type="text" placeholder="Location">
-                                <label>Write about your experience</label>
+                                <label id="experience-label">Write about your experience</label>
                                 <textarea class="form-control" id="journal-entry-text" rows="3"></textarea>
                             </div>
                             <div class="input-group mb-3">
@@ -886,12 +883,14 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12" id="journal-display">
-            
+            <div class="col-md-12" id="journal-display">        
             </div>
-
         </div>
-
+    </div>
+        <div class="row">
+            <div class="col-md-12" id="journal-display">     
+            </div>
+        </div>
     </div>
             <a id="currency" class="smooth"></a>
         </div>
@@ -1008,7 +1007,7 @@
                     <div class="col-md-3">
                         <img src="./assets/images/greg-profile.jpg" class="about-image" width="140px" height="140px" alt="Greg">
                         <h2 class="about-name">Greg Baker</h2>
-                        <p>Backend Development. Consisting of connecting new APIs to help put more useful information into our tools and managing the javascript for the pages various functions.</p>
+                        <p>Backend Development. Consisting of connecting new APIs to help put more useful information into our tools and managing the javascript for the page's various functions.</p>
                             <p class="about-links"><a class="btn btn-secondary" href="https://www.linkedin.com/in/greg-baker-48ab9717b/" target="_blank" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="https://github.com/BakedALake" target="_blank" role="button"><i class="fab fa-github-square"></i></a></p>
                     </div><!-- /.col-md-3 -->
                     <div class="col-md-3">
@@ -1020,7 +1019,7 @@
                 <div class="col-md-3">
                     <img src="./assets/images/Me-professional-ish.jpg" class="about-image" width="140px" height="140px" alt="Pri">
                     <h2 class="about-name">Pri Heller</h2>
-                    <p>GitHubber. I am the one who knocks on the Firebase door.</p>
+                    <p>GitHubber. I am the one who knocks... on the Firebase door.</p>
                         <p class="about-links"><a class="btn btn-secondary" href="https://www.linkedin.com/in/priscila-heller-80a13621/" target="_blank" role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-secondary" href="https://github.com/talktopri" target="_blank" role="button"><i class="fab fa-github-square"></i></a></p>
                 </div><!-- /.col-md-3 -->
             </div><!-- /.row -->
