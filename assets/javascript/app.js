@@ -180,7 +180,8 @@ function confirmUpload() {
       $("#upload-journal-entry")[0].after("Upload successful! Refresh the page to see your post.");
       var updates = {};
       updates['users/' + uid + '/Posts/' + postKey] = postData;
-      updateDOM(postData)
+      updateDOM(postData);
+      location.reload();
       return database.ref().update(updates);
     });
   });
