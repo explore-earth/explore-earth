@@ -122,8 +122,6 @@ $("#menu-logout").on('click', function () {
 window.onload = function () {
   console.log("running");
   document.getElementById("customs").style.display = "none";
-  document.getElementById("journal").style.display = "none";
-  document.getElementById("menu-journal").style.display = "none";
   document.getElementById("upload").addEventListener('change', handleFileSelect, false);
   
 }
