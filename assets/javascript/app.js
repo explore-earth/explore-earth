@@ -179,7 +179,7 @@ function confirmUpload() {
         journalEntry: $("#journal-entry-text").val().trim(),
         location: $("#location").val().trim()
       };
-      $("#upload-journal-entry")[0].after("Upload successful!");
+      $("#upload-journal-entry")[0].after("Upload successful! Refresh the page to see your post.");
       var updates = {};
       updates['users/' + uid + '/Posts/' + postKey] = postData;
       updateDOM(postData)
@@ -215,8 +215,8 @@ function queryDatabase() {
       
       var travelImage = $("<img>");
       travelImage.css({
-        "width":"21em",
-        "height":"18em"
+        "width":"90%",
+        "height":"81%"
       
       })
 
