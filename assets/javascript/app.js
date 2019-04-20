@@ -127,7 +127,7 @@ $("#menu-logout").on('click', function () {
 
 window.onload = function () {
   console.log("running");
-  document.getElementById("customs").style.display = "none";
+  document.getElementById("customs").style.display = "block";
   document.getElementById("upload").addEventListener('change', handleFileSelect, false);
   
 }
