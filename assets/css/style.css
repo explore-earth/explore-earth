@@ -52,6 +52,9 @@ h4, .country-head {
     text-align: center;
     margin: auto;
 }
+#currencyConverter {
+    margin-top: 50px;
+}
 #inputCurrency {
     margin-top: 20px;
 }
