@@ -21,11 +21,17 @@ var mymap = "";
 //Variables for errors.
 var jqXHR, textStatus, errorThrown;
 
+$( document ).ready(function() {
+  if (document.cookie.indexOf('visited=true') == -1){
+    // load the overlay
+    $("#modal").modal({show:true});
+    
+    var year = 1000*60*60*24*365;
+    var expires = new Date((new Date()).valueOf() + year);
+    document.cookie = "visited=true;expires=" + expires.toUTCString();
 
-
-$(function () {
-  $("#modal").modal('show');
-});
+  }
+}); 
 
 $('.menu-link').click(function () {
   $('.collapse').hide();
